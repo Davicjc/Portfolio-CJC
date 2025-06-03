@@ -1,0 +1,530 @@
+:root {
+    --primary-color: #0a192f; /* Azul noite profundo */
+    --secondary-color: #112240; /* Azul noite um pouco mais claro */
+    --accent-color: #64ffda; /* Ciano elétrico / Verde Neon */
+    --text-color-light: #ccd6f6; /* Texto claro quase branco */
+    --text-color-dark: #8892b0; /* Texto secundário mais escuro */
+    --border-radius: 8px;
+    --futuristic-font: 'Audiowide', cursive;
+    --main-font: 'Montserrat', sans-serif;
+    --section-padding-vertical: 80px;
+    --section-padding-horizontal: 20px;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevenir scroll horizontal indesejado */
+}
+
+/* Cabeçalho e Navegação */
+#main-header {
+    background-color: rgba(10, 25, 47, 0.85); /* Azul primário com transparência */
+    padding: 0 var(--section-padding-horizontal);
+    position: fixed; /* Ou sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+#main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#main-header .logo {
+    font-family: var(--futuristic-font);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+#main-header .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+#main-header .nav-links li {
+    margin-left: 25px;
+}
+
+#main-header .nav-links li a {
+    text-decoration: none;
+    color: var(--text-color-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative; /* Para o efeito de sublinhado */
+}
+
+#main-header .nav-links li a::after { /* Efeito de sublinhado animado */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+#main-header .nav-links li a:hover::after,
+#main-header .nav-links li a:focus::after {
+    width: 100%;
+}
+
+#main-header .nav-links li a:hover,
+#main-header .nav-links li a:focus {
+    color: var(--accent-color);
+}
+
+.lang-button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: var(--main-font);
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* Espaçamento para o conteúdo principal devido ao header fixo */
+main {
+    padding-top: 70px; /* Altura aproximada do header */
+}
+
+/* Estilos Gerais de Seção */
+.section-padding {
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+    max-width: 1000px; /* Largura máxima do conteúdo da seção */
+    margin: 0 auto; /* Centraliza o conteúdo da seção */
+}
+
+.dark-section {
+    background-color: var(--secondary-color);
+    border-top: 1px solid #1d2d50; /* Divisória sutil */
+    border-bottom: 1px solid #1d2d50;
+}
+
+.section-title {
+    font-family: var(--futuristic-font);
+    font-size: 2.8rem;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent-color);
+    opacity: 0.7;
+}
+
+/* Seção Hero */
+.hero-section {
+    min-height: calc(100vh - 70px); /* 70px é a altura do header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('background-tech.jpg') no-repeat center center/cover; /* Adicione uma imagem de fundo se desejar */
+}
+
+.profile-pic-hero {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+.hero-content h1 {
+    font-family: var(--futuristic-font);
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color-light);
+    letter-spacing: 1px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color-dark);
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+}
+
+/* Seção Sobre Mim */
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color-dark);
+    text-align: justify; /* Ou left, conforme preferência */
+}
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Seção Experiência (Timeline) */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before { /* Linha central da timeline */
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--accent-color);
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Para layout de um lado */
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 50px; /* Espaço para o ícone e linha */
+}
+
+.timeline-item::before { /* Círculos na timeline */
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 11px; /* (20px da linha - 18px/2 + 3px da borda)/2  */
+    background-color: var(--secondary-color);
+    border: 3px solid var(--accent-color);
+    top: 5px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: var(--primary-color); /* Um pouco mais escuro que o fundo da dark-section */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.timeline-content h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.timeline-content .company-info, .timeline-content .date-info {
+    font-size: 0.95rem;
+    color: var(--text-color-dark);
+    margin-bottom: 0.5rem;
+}
+.timeline-content .date-info {
+    font-style: italic;
+}
+
+.timeline-content ul {
+    list-style-position: outside;
+    padding-left: 20px;
+    color: var(--text-color-dark);
+}
+.timeline-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Seção Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+}
+
+.project-card h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+.project-card .project-info, .project-card .date-info {
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+    margin-bottom: 0.75rem;
+}
+.project-card p:not(.project-info):not(.date-info) { /* Descrição do projeto */
+    flex-grow: 1; /* Faz a descrição ocupar o espaço restante */
+    margin-bottom: 1rem;
+    color: var(--text-color-light);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: auto; /* Alinha ao final do card */
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-start; /* Alinha à esquerda */
+}
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Seção Habilidades */
+.skills-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-category h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--text-color-dark);
+    padding-bottom: 8px;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    margin-bottom: 10px;
+    color: var(--text-color-dark);
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+
+.skill-category ul li::before {
+    content: '▹'; /* Marcador futurista */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Seção Formação Acadêmica */
+.education-entry {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+.education-entry h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.education-entry .institution-info, .education-entry .date-info {
+    font-size: 0.95rem;
+    color: var(--text-color-dark);
+    margin-bottom: 0.5rem;
+}
+.education-entry p:not(.institution-info):not(.date-info) {
+    color: var(--text-color-light);
+}
+
+/* Seção Certificações */
+.certification-list {
+    list-style: none;
+    padding: 0;
+    columns: 2; /* Display em duas colunas se houver muitas */
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    gap: 15px;
+}
+.certification-list li {
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text-color-dark);
+    border-left: 3px solid var(--accent-color);
+    transition: background-color 0.3s ease;
+}
+.certification-list li:hover {
+    background-color: #172a45; /* Um pouco mais claro ao passar o mouse */
+}
+.certification-list a {
+    text-decoration: none;
+    color: rgb(0, 225, 255); /* Mantém a cor do texto padrão */
+}
+
+.certification-list a:hover {
+    text-decoration: underline; /* Opcional: sublinha ao passar o mouse */
+}
+
+.center-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1rem;
+}
+.linkedin-link {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+.linkedin-link:hover {
+    text-decoration: underline;
+}
+
+/* Seção Contato */
+.contact-info-block {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.contact-info-block p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-color-dark);
+}
+.contact-info-block strong {
+    color: var(--text-color-light);
+}
+.contact-info-block a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.contact-info-block a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
+#main-footer {
+    text-align: center;
+    padding: 25px var(--section-padding-horizontal);
+    background-color: var(--secondary-color);
+    color: var(--text-color-dark);
+    border-top: 1px solid #1d2d50;
+    margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #main-header .nav-links {
+        display: none; /* Idealmente, substituir por um menu hambúrguer */
+    }
+    #main-header nav {
+        justify-content: space-between; /* Garante que o logo e o botão (se visível) se espacem */
+    }
+     #main-header .logo {
+        margin-right: auto; /* Empurra o logo para a esquerda, se o botão de idioma estiver presente */
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 35px;
+    }
+    .timeline-item::before {
+        left: 1px; /* (10px da linha - 18px/2 + 3px da borda)/2 - ajuste fino */
+        width: 16px;
+        height: 16px;
+    }
+
+    .certification-list {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .profile-pic-hero {
+        width: 150px;
+        height: 150px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .skills-showcase {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+}
