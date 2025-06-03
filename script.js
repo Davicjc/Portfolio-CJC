@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const langSwitcher = document.getElementById('lang-switcher');
     if (langSwitcher) {
         langSwitcher.addEventListener('click', function() {
-            const href = window.location.href;
-            if (href.includes('index_en.html')) {
+            // Sempre alterna entre os arquivos, independente da URL
+            if (window.location.pathname.endsWith('index_en.html')) {
                 window.location.href = 'index.html';
             } else {
                 window.location.href = 'index_en.html';
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Atualiza o texto do botão com base na página atual
-        if (window.location.href.includes('index_en.html')) {
+        if (window.location.pathname.endsWith('index_en.html')) {
             langSwitcher.textContent = 'Versão em Português';
         } else {
             langSwitcher.textContent = 'English Version';
