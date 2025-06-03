@@ -470,7 +470,34 @@ main {
     color: var(--text-color-dark);
     border-top: 1px solid #1d2d50;
     margin-top: 40px;
+    position: relative; /* Para garantir o empilhamento correto */
+    z-index: 1;       /* Para ficar acima do canvas de partículas */
 }
+
+/* Estilos para o canvas de partículas */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Permite cliques através do canvas */
+    z-index: 0;           /* Atrás do conteúdo principal, mas acima do fundo do body */
+    background: transparent !important;
+}
+
+/* Garante que o conteúdo principal fique acima do canvas de partículas */
+body {
+    /* ... suas outras propriedades de body ... */
+    position: relative; /* Necessário para o contexto de empilhamento dos filhos */
+}
+
+#main-header, /* Já tem z-index: 1000, o que é bom */
+main {
+    position: relative; /* Garante o contexto de empilhamento */
+    z-index: 1;       /* Conteúdo acima do canvas de partículas */
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
