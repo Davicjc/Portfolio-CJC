@@ -1,3 +1,10 @@
+/*
+    Código CSS do Portfólio de Davi Castro (davicjc).
+    Este código foi originalmente desenvolvido por Davi Castro.
+    Editado e comentado por IA (GitHub Copilot) para facilitar o entendimento de terceiros.
+*/
+
+/* Variáveis Globais de Cores e Fontes */
 :root {
     --primary-color: #0a192f; /* Azul noite profundo */
     --secondary-color: #112240; /* Azul noite um pouco mais claro */
@@ -500,58 +507,52 @@ main {
 
 
 /* Responsividade */
+
+/* Estilos aplicados quando a largura da tela é no máximo 768 pixels (tablets e celulares maiores em modo paisagem) */
 @media (max-width: 768px) {
+    /* Esconde os links de navegação principais no cabeçalho.
+       Idealmente, isso seria substituído por um menu "hambúrguer" para navegação mobile.
+       Associado a: #main-header .nav-links */
     #main-header .nav-links {
-        display: none; /* Idealmente, substituir por um menu hambúrguer */
-    }
-    #main-header nav {
-        justify-content: space-between; /* Garante que o logo e o botão (se visível) se espacem */
-    }
-     #main-header .logo {
-        margin-right: auto; /* Empurra o logo para a esquerda, se o botão de idioma estiver presente */
+        display: none;
     }
 
+    /* Ajusta o layout da barra de navegação no cabeçalho.
+       'space-between' distribui o espaço entre o logo e outros elementos (como o botão de idioma, se visível).
+       Associado a: #main-header nav */
+    #main-header nav {
+        justify-content: space-between;
+    }
+
+    /* Garante que o logo no cabeçalho seja empurrado para a esquerda,
+       criando espaço caso haja outros elementos à direita (como o botão de idioma).
+       Associado a: #main-header .logo */
+     #main-header .logo {
+        margin-right: auto;
+    }
+
+    /* Reduz o tamanho da fonte do título principal na seção hero.
+       Associado a: .hero-content h1 */
     .hero-content h1 {
         font-size: 2.8rem;
     }
+
+    /* Reduz o tamanho da fonte do subtítulo na seção hero.
+       Associado a: .hero-content .subtitle */
     .hero-content .subtitle {
         font-size: 1.2rem;
     }
+
+    /* Reduz o tamanho da fonte para todos os títulos de seção.
+       Associado a: .section-title */
     .section-title {
         font-size: 2.2rem;
     }
 
+    /* Ajusta a posição da linha vertical da timeline para mais perto da borda esquerda.
+       Associado a: .timeline::before */
     .timeline::before {
         left: 10px;
     }
-    .timeline-item {
-        padding-left: 35px;
-    }
-    .timeline-item::before {
-        left: 1px; /* (10px da linha - 18px/2 + 3px da borda)/2 - ajuste fino */
-        width: 16px;
-        height: 16px;
-    }
 
-    .certification-list {
-        columns: 1;
-        -webkit-columns: 1;
-        -moz-columns: 1;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    .profile-pic-hero {
-        width: 150px;
-        height: 150px;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
-    .skills-showcase {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-    }
-}
+    /* Aumenta o preenchido
