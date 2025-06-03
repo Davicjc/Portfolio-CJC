@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (langSwitcher) {
         langSwitcher.addEventListener('click', function() {
             // Verifica qual página está ativa para decidir para onde redirecionar
-            if (window.location.pathname.includes('index_pt.html') || window.location.pathname === '/') {
+            if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
                 // Se está na PT ou na raiz (assumindo PT como padrão), vai para EN
                 window.location.href = 'index_en.html'; // Crie este arquivo para a versão em inglês
             } else if (window.location.pathname.includes('index_en.html')) {
                 // Se está na EN, vai para PT
-                window.location.href = 'index_pt.html';
+                window.location.href = 'index.html';
             }
             // Adicione mais lógica se necessário, como guardar a preferência em localStorage.
         });
