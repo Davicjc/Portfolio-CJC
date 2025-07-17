@@ -168,4 +168,69 @@ document.addEventListener('DOMContentLoaded', function() {
         initParticles();    // Inicializa as partículas quando o script é carregado.
         animateParticles(); // Inicia o loop de animação.
     })(); // Função auto-executável (IIFE) para encapsular o escopo das partículas.
+
+    // Sistema de Liquid Glass com interação realista do mouse
+    (function() {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let targetX = mouseX;
+        let targetY = mouseY;
+        let isMouseMoving = false;
+        let mouseTimeout;
+
+        // Smooth mouse tracking com easing
+        function updateMousePosition() {
+            const ease = 0.1;
+            mouseX += (targetX - mouseX) * ease;
+            mouseY += (targetY - mouseY) * ease;
+            
+            // Atualiza CSS variables para o efeito liquid glass
+            document.documentElement.style.setProperty('--mouseX', mouseX + 'px');
+            document.documentElement.style.setProperty('--mouseY', mouseY + 'px');
+            document.documentElement.style.setProperty('--mouseMoving', isMouseMoving ? '1' : '0');
+            
+            requestAnimationFrame(updateMousePosition);
+        }
+
+        // Mouse move listener
+        document.addEventListener('mousemove', function(e) {
+            targetX = e.clientX;
+            targetY = e.clientY;
+            isMouseMoving = true;
+            
+            // Reset timeout para detectar quando o mouse para
+            clearTimeout(mouseTimeout);
+            mouseTimeout = setTimeout(() => {
+                isMouseMoving = false;
+            }, 100);
+        });
+
+        // Inicia o sistema de tracking
+        updateMousePosition();
+
+        // Adiciona efeito de ripple ao clicar
+        document.addEventListener('click', function(e) {
+            const ripple = document.createElement('div');
+            ripple.className = 'liquid-ripple';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 1000);
+        });
+
+        // Hover effects para elementos interativos
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category, .timeline-content');
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.setProperty('--hover-intensity', '1');
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.setProperty('--hover-intensity', '0');
+            });
+        });
+    })();
 });

@@ -27,12 +27,10 @@
         <nav>
             <!-- Logo ou nome do site. Associado a: Identidade Visual -->
             <div class="logo">Davi Castro</div>
-            <!-- Subtítulo opcional no cabeçalho. -->
-            <h3 class="subtitle">"Site beta"</h3>
             <!-- Lista de links de navegação principal. Associado a: Navegação entre seções -->
             <ul class="nav-links">
                 <li><a href="#hero">Início</a></li>
-                <li><a href="#sobre-mim">Sobre Mim</a></li>
+                <li><a href="#sobre-mim">Sobre</a></li>
                 <li><a href="#experiencia">Experiência</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
@@ -92,11 +90,11 @@
                     <div class="timeline-content">
                         <h3>Analista de Suporte Computacional Bilíngue</h3>
                         <p class="company-info"><strong>Algar Telecom</strong> | Uberlândia, MG (Remoto)</p>
-                        <p class="date-info">Dezembro 2023 – Atual</p>
+                        <p class="date-info">Dezembro 2023 – Junho 2025</p>
                         <ul>
-                            <li>Responsável pela gestão de relacionamento empresarial na Algar, acompanhando grandes clientes como Verizon, BT e China Telecom. </li>
-                            <li>Atuação no suporte técnico, resolução de problemas e assistência a dispositivos. </li>
-                            <li>Execução de atividades operacionais essenciais para a continuidade dos negócios dos clientes. </li>
+                            <li>Responsável por gerenciar relacionamentos comerciais na Algar, atendendo grandes clientes como Verizon, BT e China Telecom.</li>
+                            <li>Suporte técnico, resolução de problemas e auxílio com dispositivos.</li>
+                            <li>Execução de atividades operacionais essenciais para garantir a continuidade dos negócios dos clientes.</li>
                         </ul>
                     </div>
                 </article>
@@ -234,20 +232,32 @@
         <section id="certificacoes" class="section-padding dark-section">
             <!-- Título da seção. -->
             <h2 class="section-title">Certificações</h2>
-            <!-- Lista de certificações. -->
-            <ul class="certification-list">
-                <li><a href="certificados/prompt-windows-alura.pdf" target="_blank" rel="noopener noreferrer">Prompt do Windows - Alura (Março 2022)</a></li>
-                <li><a href="certificados/python-alura.pdf" target="_blank" rel="noopener noreferrer">Python - Alura (Dezembro 2021)</a></li>
-                <li><a href="certificados/seguranca-hacker-rangers.pdf" target="_blank" rel="noopener noreferrer">Segurança da Informação - Hacker Rangers Brasil</a></li>
-                <li><a href="certificados/ingles-alura.pdf" target="_blank" rel="noopener noreferrer">Inglês - Alura (Junho 2021)</a></li>
-                <li><a href="certificados/ingles-wizard.pdf" target="_blank" rel="noopener noreferrer">Inglês - Wizard by Pearson (Dezembro 2019)</a></li>
-                <li><a href="certificados/codigo-conduta-algar.pdf" target="_blank" rel="noopener noreferrer">Código de Conduta - Algar Telecom</a></li>
-                <li><a href="certificados/lgpd-algar.pdf" target="_blank" rel="noopener noreferrer">LGPD - Algar Telecom</a></li>
-            </ul>
-            <!-- Texto com link para o perfil do LinkedIn. -->
-            <p class="center-text">
-                Clique para visualizar os certificados em PDF ou visite meu perfil no <a href="https://www.linkedin.com/in/davicjc/details/certifications/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>.
-            </p>
+            <!-- Wrapper para aplicar o estilo de card -->
+            <div class="certification-card-wrapper">
+                <!-- Lista de certificações. -->
+                <ul class="certification-list">
+                    <li><a href="certificados/prompt-windows-alura.pdf" target="_blank" rel="noopener noreferrer">Prompt do Windows - Alura (Março 2022)</a></li>
+                    <li><a href="certificados/python-alura.pdf" target="_blank" rel="noopener noreferrer">Python - Alura (Dezembro 2021)</a></li>
+                    <li><a href="certificados/seguranca-hacker-rangers.pdf" target="_blank" rel="noopener noreferrer">Segurança da Informação - Hacker Rangers Brasil</a></li>
+                    <li><a href="certificados/ingles-alura.pdf" target="_blank" rel="noopener noreferrer">Inglês - Alura (Junho 2021)</a></li>
+                    <li><a href="certificados/ingles-wizard.pdf" target="_blank" rel="noopener noreferrer">Inglês - Wizard by Pearson (Dezembro 2019)</a></li>
+                    <li><a href="certificados/codigo-conduta-algar.pdf" target="_blank" rel="noopener noreferrer">Código de Conduta - Algar Telecom</a></li>
+                    <li><a href="certificados/lgpd-algar.pdf" target="_blank" rel="noopener noreferrer">LGPD - Algar Telecom</a></li>
+                </ul>
+                
+                <!-- Seção Em Progresso -->
+                <h4 style="color: var(--accent-color); margin-top: 30px; margin-bottom: 15px;">Em Progresso</h4>
+                <ul class="certification-list">
+                    <li style="color: #ffd700;">Java - Udemy (Previsão: Final de 2025)</li>
+                    <li style="color: #ffd700;">Inglês - Duolingo (Hobby e apoio linguístico) ∞</li>
+                    <li style="color: #ffd700;">AWS - Amazon Web Services (Previsão: Final de 2025)</li>
+                </ul>
+                
+                <!-- Texto com link para o perfil do LinkedIn. -->
+                <p class="center-text">
+                    Clique para visualizar os certificados em PDF ou visite meu perfil no <a href="https://www.linkedin.com/in/davicjc/details/certifications/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>.
+                </p>
+            </div>
         </section>
 
         <!-- Seção Contato. Associado a: #contato -->
@@ -269,7 +279,7 @@
         <!-- Direitos autorais e ano dinâmico. Associado a: script.js (atualização do ano) -->
         <p>&copy; <span id="year"></span> Davi Castro. Todos os direitos reservados.</p>
         <!-- Informação de versão do site. -->
-        <p>Versão 1.8</p>
+        <p>Versão 2</p>
     </footer>
 
     <!-- Link para o arquivo JavaScript principal. Associado a: script.js -->

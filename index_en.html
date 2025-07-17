@@ -27,12 +27,10 @@
         <nav>
             <!-- Site logo or name. Associated with: Visual Identity -->
             <div class="logo">Davi Castro</div>
-            <!-- Optional subtitle in the header. -->
-            <h3 class="subtitle">"Beta site"</h3>
             <!-- Main navigation links list. Associated with: Navigation between sections -->
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#sobre-mim">About Me</a></li>
+                <li><a href="#sobre-mim">About</a></li>
                 <li><a href="#experiencia">Experience</a></li>
                 <li><a href="#projetos">Projects</a></li>
                 <li><a href="#habilidades">Skills</a></li>
@@ -92,7 +90,7 @@
                     <div class="timeline-content">
                         <h3>Bilingual IT Support Analyst</h3>
                         <p class="company-info"><strong>Algar Telecom</strong> | Uberlândia, MG (Remote)</p>
-                        <p class="date-info">December 2023 – Present</p>
+                        <p class="date-info">December 2023 – June 2025</p>
                         <ul>
                             <li>Responsible for managing business relationships at Algar, supporting major clients such as Verizon, BT, and China Telecom.</li>
                             <li>Technical support, troubleshooting, and device assistance.</li>
@@ -234,20 +232,32 @@
         <section id="certificacoes" class="section-padding dark-section">
             <!-- Section title. -->
             <h2 class="section-title">Certifications</h2>
-            <!-- List of certifications. -->
-            <ul class="certification-list">
-                <li><a href="certificados/prompt-windows-alura.pdf" target="_blank" rel="noopener noreferrer">Windows Prompt - Alura (March 2022)</a></li>
-                <li><a href="certificados/python-alura.pdf" target="_blank" rel="noopener noreferrer">Python - Alura (December 2021)</a></li>
-                <li><a href="certificados/seguranca-hacker-rangers.pdf" target="_blank" rel="noopener noreferrer">Information Security - Hacker Rangers Brasil</a></li>
-                <li><a href="certificados/ingles-alura.pdf" target="_blank" rel="noopener noreferrer">English - Alura (June 2021)</a></li>
-                <li><a href="certificados/ingles-wizard.pdf" target="_blank" rel="noopener noreferrer">English - Wizard by Pearson (December 2019)</a></li>
-                <li><a href="certificados/codigo-conduta-algar.pdf" target="_blank" rel="noopener noreferrer">Code of Conduct - Algar Telecom</a></li>
-                <li><a href="certificados/lgpd-algar.pdf" target="_blank" rel="noopener noreferrer">LGPD - Algar Telecom</a></li>
-            </ul>
-            <!-- Text with link to LinkedIn profile. -->
-            <p class="center-text">
-                Click to view the certificates in PDF or visit my <a href="https://www.linkedin.com/in/davicjc/details/certificacoes/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a> profile.
-            </p>
+            <!-- Wrapper to apply card style -->
+            <div class="certification-card-wrapper">
+                <!-- List of certifications. -->
+                <ul class="certification-list">
+                    <li><a href="certificados/prompt-windows-alura.pdf" target="_blank" rel="noopener noreferrer">Windows Prompt - Alura (March 2022)</a></li>
+                    <li><a href="certificados/python-alura.pdf" target="_blank" rel="noopener noreferrer">Python - Alura (December 2021)</a></li>
+                    <li><a href="certificados/seguranca-hacker-rangers.pdf" target="_blank" rel="noopener noreferrer">Information Security - Hacker Rangers Brasil</a></li>
+                    <li><a href="certificados/ingles-alura.pdf" target="_blank" rel="noopener noreferrer">English - Alura (June 2021)</a></li>
+                    <li><a href="certificados/ingles-wizard.pdf" target="_blank" rel="noopener noreferrer">English - Wizard by Pearson (December 2019)</a></li>
+                    <li><a href="certificados/codigo-conduta-algar.pdf" target="_blank" rel="noopener noreferrer">Code of Conduct - Algar Telecom</a></li>
+                    <li><a href="certificados/lgpd-algar.pdf" target="_blank" rel="noopener noreferrer">LGPD - Algar Telecom</a></li>
+                </ul>
+                
+                <!-- In Progress Section -->
+                <h4 style="color: var(--accent-color); margin-top: 30px; margin-bottom: 15px;">In Progress</h4>
+                <ul class="certification-list">
+                    <li style="color: #ffd700;">Java - Udemy (Expected: End of 2025)</li>
+                    <li style="color: #ffd700;">English - Duolingo (Hobby and linguistic support) ∞</li>
+                    <li style="color: #ffd700;">AWS - Amazon Web Services (Expected: End of 2025)</li>
+                </ul>
+                
+                <!-- Text with link to LinkedIn profile. -->
+                <p class="center-text">
+                    Click to view the certificates in PDF or visit my <a href="https://www.linkedin.com/in/davicjc/details/certifications/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a> profile.
+                </p>
+            </div>
         </section>
 
         <!-- Contact Section. Associated with: #contato -->
@@ -269,7 +279,7 @@
         <!-- Copyright and dynamic year. Associated with: script.js (year update) -->
         <p>&copy; <span id="year"></span> Davi Castro. All rights reserved.</p>
         <!-- Site version information. -->
-        <p>Version 1.8</p>
+        <p>Version 2</p>
     </footer>
 
     <!-- Link to the main JavaScript file. Associated with: script.js -->
