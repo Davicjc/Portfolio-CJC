@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davi Castro - Currículo/Resume - Desenvolvedor Back-End/Back-End Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a2040 50%, #162850 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Liquid Glass Cursor Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50vh;
+            left: 50vw;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, 
+                rgba(79, 172, 254, 0.2) 0%, 
+                rgba(58, 134, 255, 0.15) 30%, 
+                rgba(30, 144, 255, 0.1) 60%, 
+                transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(40px);
+            z-index: 1;
+            opacity: 0.8;
+            transform: translate(-50%, -50%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(25px) saturate(180%) brightness(110%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(110%);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.25), rgba(58, 134, 255, 0.2));
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(79, 172, 254, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin: 0 auto 15px;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+        
+        .contact-info div {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .dual-language {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .language-section {
+            padding: 20px;
+        }
+        
+        .divider {
+            background: linear-gradient(to bottom, transparent, #4facfe, #00f2fe, #4facfe, transparent);
+            width: 1px;
+            margin: 20px 0;
+        }
+        
+        .lang-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4facfe;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(79, 172, 254, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section h2 {
+            color: #4facfe;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #4facfe;
+            padding-bottom: 5px;
+            position: relative;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.4);
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #3a86ff;
+            box-shadow: 0 0 10px rgba(58, 134, 255, 0.6);
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 18px;
+            padding: 15px;
+            background: rgba(26, 40, 64, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .experience-item:hover::before, .education-item:hover::before {
+            opacity: 1;
+        }
+        
+        .experience-item:hover, .education-item:hover {
+            border-color: #3a86ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.25);
+        }
+        
+        .experience-item h3, .education-item h3 {
+            color: #4facfe;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .company-date {
+            font-weight: bold;
+            color: #3a86ff;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .experience-item li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        
+        .experience-item li::before {
+            content: '▸';
+            color: #4facfe;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            text-shadow: 0 0 5px rgba(79, 172, 254, 0.6);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: rgba(26, 40, 64, 0.5);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            border-color: #3a86ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(79, 172, 254, 0.25);
+        }
+        
+        .skill-category h4 {
+            color: #4facfe;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 4px 0;
+            color: #ffffff;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+        
+        .certifications ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        
+        .certifications li {
+            background: rgba(26, 40, 64, 0.5);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            font-size: 0.85rem;
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .certifications li:hover {
+            border-color: #3a86ff;
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(79, 172, 254, 0.2);
+        }
+        
+        .project-item {
+            background: rgba(26, 40, 64, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            backdrop-filter: blur(10px);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-item:hover::before {
+            opacity: 1;
+        }
+        
+        .project-item:hover {
+            border-color: #3a86ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.25);
+        }
+        
+        .project-item h3 {
+            color: #4facfe;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text {
+            background: rgba(26, 40, 64, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            color: #ffffff;
+            backdrop-filter: blur(8px);
+        }
+        
+        @media (max-width: 1200px) {
+            .dual-language {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .divider {
+                display: none;
+            }
+            
+            .language-section {
+                border-top: 2px solid #4facfe;
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+            
+            .language-section:first-child {
+                border-top: none;
+                margin-top: 0;
+                padding-top: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .main-container {
+                margin: 0 5px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                font-size: 10pt;
+            }
+            
+            .main-container {
+                box-shadow: none;
+                background: white;
+                max-width: none;
+            }
+            
+            .dual-language {
+                grid-template-columns: 1fr 1px 1fr;
+                gap: 0;
+            }
+            
+            .language-section {
+                padding: 10px;
+            }
+            
+            .section h2 {
+                font-size: 12pt;
+            }
+            
+            .experience-item h3 {
+                font-size: 10pt;
+            }
+            
+            .experience-item li {
+                font-size: 9pt;
+            }
+            
+            /* Ocultar aviso bilíngue na impressão */
+            .bilingual-notice {
+                display: none !important;
+            }
+        }
+        
+        /* Estilo para o link do portfólio */
+        .portfolio-link:hover {
+            background: rgba(255,255,255,0.35) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.5) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <img src="https://github.com/Davicjc/Portfolio-CJC/raw/main/profile-pic.jpg" alt="Davi Castro" class="profile-pic">
+            <h1>Davi Castro</h1>
+            <p class="subtitle">Desenvolvedor Back-End | Analista de Sistemas | Back-End Developer | Systems Analyst</p>
+            <div class="contact-info">
+                <div>📧 davicjc@gmail.com</div>
+                <div>📱 +55 34 99333-6186</div>
+                <div>🔗 linkedin.com/in/davicjc</div>
+                <div>📍 Uberlândia, MG - Brazil</div>
+            </div>
+        </header>
+
+        <!-- Aviso Bilíngue e Portfólio -->
+        <div class="bilingual-notice" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)); color: white; padding: 20px; text-align: center; margin: 0; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <div style="font-size: 1rem; opacity: 0.95; margin-bottom: 15px; line-height: 1.5;">
+                Abaixo está disponível o currículo em Português e Inglês<br>
+                <span style="font-size: 0.9rem; opacity: 0.85;">Below is available the resume in Portuguese and English</span>
+            </div>
+            
+            <!-- Destaque para explorar portfólio -->
+            <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; margin: 15px 0; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(5px);">
+                <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                    ✨ Explore meu portfólio completo para mais projetos e detalhes
+                </div>
+                <div style="font-size: 1rem; font-weight: 500; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin-bottom: 15px;">
+                    ✨ Explore my complete portfolio for more projects and details
+                </div>
+                
+                <!-- Botão do portfólio dentro da caixa de destaque -->
+                <div>
+                    <a href="https://davicjc.github.io/Portfolio-CJC/" target="_blank" class="portfolio-link" style="color: white; text-decoration: none; background: rgba(255,255,255,0.25); padding: 12px 24px; border-radius: 30px; display: inline-block; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); font-size: 0.95rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        🌐 Acessar Portfólio | Visit Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dual-language">
+            <!-- VERSÃO PORTUGUÊS -->
+            <div class="language-section">
+                <div class="lang-title">🇧🇷 PORTUGUÊS</div>
+                
+                <!-- Sobre Mim -->
+                <section class="section">
+                    <h2>👨‍💻 Sobre Mim</h2>
+                    <div class="about-text">
+                        <p>Graduando em Sistemas de Informação pela Uniube, especializado em desenvolvimento back-end com forte aptidão para resolução analítica de problemas. Proficiente em C#, Python, GitHub e Visual Studio. Busco constantemente o aprimoramento técnico e a aplicação de tecnologias emergentes para criar soluções robustas e inovadoras.</p>
+                    </div>
+                </section>
+
+                <!-- Experiência Profissional -->
+                <section class="section">
+                    <h2>💼 Experiência Profissional</h2>
+                    
+                    <div class="experience-item">
+                        <h3>Analista de Suporte Computacional Bilíngue</h3>
+                        <div class="company-date">Algar Telecom | Dez 2023 - Jun 2025</div>
+                        <ul>
+                            <li>Gestão de relacionamentos comerciais com grandes clientes (Verizon, BT, China Telecom)</li>
+                            <li>Suporte técnico avançado e resolução de problemas</li>
+                            <li>Atividades operacionais críticas para continuidade dos negócios</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Desenvolvedor Python</h3>
+                        <div class="company-date">Universidade de Uberaba | Out - Dez 2023</div>
+                        <ul>
+                            <li>Desenvolvimento de software de reconhecimento facial</li>
+                            <li>Implementação de algoritmos de segurança</li>
+                            <li>1º lugar entre 60 alunos no projeto</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Agente SAC Bradesco</h3>
+                        <div class="company-date">Callink | Out - Dez 2023</div>
+                        <ul>
+                            <li>Atendimento ao cliente com foco em soluções eficazes</li>
+                            <li>Técnicas de sondagem para resolução de demandas</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Formação -->
+                <section class="section">
+                    <h2>🎓 Formação Acadêmica</h2>
+                    <div class="education-item">
+                        <h3>Bacharelado em Sistemas de Informação</h3>
+                        <div class="company-date">Universidade de Uberaba | Fev 2023 - Dez 2026</div>
+                        <p>Foco em desenvolvimento de software, sistemas de informação e infraestrutura de TI.</p>
+                    </div>
+                </section>
+
+                <!-- Habilidades -->
+                <section class="section">
+                    <h2>🛠️ Habilidades</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Linguagens</h4>
+                            <ul>
+                                <li>C# (Avançado)</li>
+                                <li>Python (Avançado)</li>
+                                <li>SQL</li>
+                                <li>JavaScript</li>
+                                <li>C++</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Ferramentas</h4>
+                            <ul>
+                                <li>Visual Studio</li>
+                                <li>GitHub</li>
+                                <li>Unity3D</li>
+                                <li>Unreal Engine</li>
+                                <li>Raspberry Pi</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Idiomas</h4>
+                            <ul>
+                                <li>Português (Nativo)</li>
+                                <li>Inglês (Avançado)</li>
+                                <li>Espanhol (Básico)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certificações -->
+                <section class="section">
+                    <h2>🏆 Certificações</h2>
+                    <div class="certifications">
+                        <ul>
+                            <li>Python - Alura (2021)</li>
+                            <li>Inglês Avançado - Wizard (2019)</li>
+                            <li>Prompt Windows - Alura (2022)</li>
+                            <li>Segurança da Informação - Hacker Rangers</li>
+                            <li>LGPD - Algar Telecom</li>
+                            <li>AWS (Em progresso - 2025)</li>
+                            <li>Java - Udemy (Em progresso - 2025)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Projeto -->
+                <section class="section">
+                    <h2>🚀 Projetos Destaque</h2>
+                    
+                    <div class="project-item">
+                        <h3>Portfólio Interativo com Efeitos Liquid Glass</h3>
+                        <div class="company-date">Projeto Pessoal | Jun 2025</div>
+                        <p>Portfólio web moderno e interativo desenvolvido com HTML5, CSS3 e JavaScript vanilla. Implementa efeitos visuais avançados de "liquid glass" com morphismo de vidro, sistema de partículas animadas, cursor interativo com ripple effects e design responsivo. Competências: JavaScript ES6+, CSS Grid/Flexbox, Canvas API, Animações CSS, Design Responsivo, Git/GitHub Pages.</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>Software de Reconhecimento Facial e Segurança</h3>
+                        <div class="company-date">Universidade de Uberaba | Mar - Mai 2023</div>
+                        <p>Sistema completo de reconhecimento facial em Python para controle de acesso, com funcionalidades de cadastro, remoção e identificação de pessoas através de câmera. Competências: Python, OpenCV, Machine Learning, Algoritmos de Visão Computacional, Interface Gráfica (Tkinter), Manipulação de Banco de Dados. Classificado em 1º lugar entre 60 projetos acadêmicos.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- DIVISOR -->
+            <div class="divider"></div>
+
+            <!-- VERSÃO INGLÊS -->
+            <div class="language-section">
+                <div class="lang-title">🇺🇸 ENGLISH</div>
+                
+                <!-- About Me -->
+                <section class="section">
+                    <h2>👨‍💻 About Me</h2>
+                    <div class="about-text">
+                        <p>Information Systems undergraduate at Uniube, specialized in back-end development with strong analytical problem-solving skills. Proficient in C#, Python, GitHub, and Visual Studio. I constantly seek technical improvement and the application of emerging technologies to create robust and innovative solutions.</p>
+                    </div>
+                </section>
+
+                <!-- Professional Experience -->
+                <section class="section">
+                    <h2>💼 Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3>Bilingual IT Support Analyst</h3>
+                        <div class="company-date">Algar Telecom | Dec 2023 - Jun 2025</div>
+                        <ul>
+                            <li>Management of commercial relationships with major clients (Verizon, BT, China Telecom)</li>
+                            <li>Advanced technical support and problem resolution</li>
+                            <li>Critical operational activities for business continuity</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Python Developer</h3>
+                        <div class="company-date">University of Uberaba | Oct - Dec 2023</div>
+                        <ul>
+                            <li>Facial recognition software development</li>
+                            <li>Security algorithms implementation</li>
+                            <li>1st place among 60 students in the project</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Customer Service Agent</h3>
+                        <div class="company-date">Callink | Oct - Dec 2023</div>
+                        <ul>
+                            <li>Customer service focused on effective solutions</li>
+                            <li>Probing techniques for demand resolution</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="section">
+                    <h2>🎓 Education</h2>
+                    <div class="education-item">
+                        <h3>Bachelor's in Information Systems</h3>
+                        <div class="company-date">University of Uberaba | Feb 2023 - Dec 2026</div>
+                        <p>Focus on software development, information systems, and IT infrastructure.</p>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section class="section">
+                    <h2>🛠️ Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <ul>
+                                <li>C# (Advanced)</li>
+                                <li>Python (Advanced)</li>
+                                <li>SQL</li>
+                                <li>JavaScript</li>
+                                <li>C++</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools</h4>
+                            <ul>
+                                <li>Visual Studio</li>
+                                <li>GitHub</li>
+                                <li>Unity3D</li>
+                                <li>Unreal Engine</li>
+                                <li>Raspberry Pi</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <ul>
+                                <li>Portuguese (Native)</li>
+                                <li>English (Advanced)</li>
+                                <li>Spanish (Basic)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section class="section">
+                    <h2>🏆 Certifications</h2>
+                    <div class="certifications">
+                        <ul>
+                            <li>Python - Alura (2021)</li>
+                            <li>Advanced English - Wizard (2019)</li>
+                            <li>Windows Prompt - Alura (2022)</li>
+                            <li>Information Security - Hacker Rangers</li>
+                            <li>LGPD - Algar Telecom</li>
+                            <li>AWS (In progress - 2025)</li>
+                            <li>Java - Udemy (In progress - 2025)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Project -->
+                <section class="section">
+                    <h2>🚀 Featured Projects</h2>
+                    
+                    <div class="project-item">
+                        <h3>Interactive Portfolio with Liquid Glass Effects</h3>
+                        <div class="company-date">Personal Project | Jun 2025</div>
+                        <p>Modern and interactive web portfolio developed with HTML5, CSS3, and vanilla JavaScript. Implements advanced "liquid glass" visual effects with glass morphism, animated particle systems, interactive cursor with ripple effects, and responsive design. Skills: JavaScript ES6+, CSS Grid/Flexbox, Canvas API, CSS Animations, Responsive Design, Git/GitHub Pages.</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>Facial Recognition and Security Software</h3>
+                        <div class="company-date">University of Uberaba | Mar - May 2023</div>
+                        <p>Complete facial recognition system in Python for access control, with registration, removal, and identification features through camera. Skills: Python, OpenCV, Machine Learning, Computer Vision Algorithms, GUI Development (Tkinter), Database Management. Ranked 1st place among 60 academic projects.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print function
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
