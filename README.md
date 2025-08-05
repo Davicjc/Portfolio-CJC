@@ -2,6 +2,45 @@
 
 Um portfólio web moderno e responsivo desenvolvido com HTML, CSS e JavaScript, apresentando um design futurístico com efeitos Glass Morphism e animações interativas.
 
+## 📜 Licença de Uso
+
+**📌 IMPORTANTE**: Este projeto pode ser usado livremente por outras pessoas, mas é **OBRIGATÓRIO** manter os créditos visíveis!
+
+---
+
+## ⚖️ DIREITOS E CONDIÇÕES DE USO
+
+### ✅ Permitido:
+- ✅ Usar o código como base para seu próprio portfólio
+- ✅ Modificar cores, textos, imagens e conteúdo
+- ✅ Adaptar o design para suas necessidades
+- ✅ Usar comercialmente
+
+### 🚨 OBRIGATÓRIO:
+- **Créditos DEVEM estar visíveis** no site final
+- **NÃO pode** ser um Easter Egg ou tooltip escondido
+- **NÃO pode** aparecer apenas no hover ou clique
+- **DEVE** ser texto simples e visível permanentemente
+
+### ❌ PROIBIDO:
+- **JAMAIS usar os documentos pessoais DO AUTOR ORIGINAL** (currículo, certificados, foto de perfil do Davi Castro)
+- **NÃO copiar os textos pessoais DO AUTOR** (experiências do Davi, formação dele, projetos específicos dele)
+- **NÃO usar as informações de contato DO AUTOR ORIGINAL** (email, telefone, LinkedIn do Davi Castro)
+
+---
+
+## 📝 COMO DAR CRÉDITO
+
+### Exemplo de Crédito Obrigatório:
+```html
+<!-- No rodapé ou em local visível -->
+<p>Design baseado no portfólio de <a href="https://github.com/Davicjc">Davi Castro</a></p>
+```
+
+**⚠️ Não seguir estas regras viola os direitos autorais!**
+
+---
+
 ## 🌟 Características Principais
 
 - **Design Glass Morphism**: Interface moderna com efeitos de vidro fosco e transparências
@@ -109,6 +148,8 @@ Portfolio-CJC/
 - **Trilíngue**: Nomes em português, inglês e espanhol
 - **Fácil adição**: Apenas adicione o PDF e configure o nome
 - **Ordenação inteligente**: Por data, ordem personalizada ou alfabética
+
+📖 **Guia completo de certificados**: [scripts/README-Certificados.md](scripts/README-Certificados.md)
 
 ### Seções
 - **Hero**: Apresentação com foto de perfil e call-to-action
@@ -318,9 +359,19 @@ O site suporta três idiomas:
 - [ ] Testes automatizados
 - [ ] CI/CD pipeline
 
-## 📄 Licença
+## 📄 Licença e Direitos
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+**Licença MIT** com **créditos obrigatórios**: Este projeto pode ser usado livremente, mas os créditos ao autor original devem permanecer visíveis no site final.
+
+### 📋 Condições de Uso:
+- ✅ **Livre para usar** pessoal ou comercialmente
+- ✅ **Modificar** conforme necessário
+- ✅ **Distribuir** e **reutilizar**
+- 🚨 **OBRIGATÓRIO**: Manter créditos visíveis no site final
+- ❌ **PROIBIDO**: Usar documentos pessoais, textos específicos ou informações do autor
+
+### ⚖️ Detalhes Técnicos:
+Veja o arquivo `LICENSE` para detalhes completos da licença MIT.
 
 ## 👨‍💻 Autor
 
