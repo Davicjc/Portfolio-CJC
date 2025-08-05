@@ -1,7 +1,6 @@
 /*
     Código JavaScript do Portfólio de Davi Castro (davicjc).
     Este código foi originalmente desenvolvido por Davi Castro.
-    Editado e comentado por IA (GitHub Copilot) para facilitar o entendimento de terceiros.
 */
 
 // Executa o código quando o DOM (Document Object Model) está completamente carregado e parseado.
@@ -13,34 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear(); // Define o texto do span para o ano atual.
-    }
-
-    // Bloco para a lógica do botão de troca de idioma.
-    // Associado a: <button id="lang-switcher">.
-    const langSwitcher = document.getElementById('lang-switcher');
-    if (langSwitcher) {
-        // Adiciona um ouvinte de evento de clique ao botão.
-        langSwitcher.addEventListener('click', function() {
-            const currentPath = window.location.pathname; // Pega o caminho atual da URL.
-            const isEnglishVersion = currentPath.endsWith('index_en.html'); // Verifica se está na versão em inglês.
-
-            // Alterna para a página oposta.
-            if (isEnglishVersion) {
-                window.location.href = '../index.html'; // Se inglês, vai para português.
-            } else {
-                // Se português (ou raiz no GitHub Pages), vai para inglês.
-                // Considera que 'index.html' ou '/' (raiz) são a versão em português.
-                window.location.href = 'paginas/index_en.html';
-            }
-        });
-
-        // Atualiza o texto do botão com base na página atual ao carregar.
-        const currentPathOnLoad = window.location.pathname;
-        if (currentPathOnLoad.endsWith('index_en.html')) {
-            langSwitcher.textContent = 'Versão em Português'; // Se na página em inglês, botão oferece ir para português.
-        } else {
-            langSwitcher.textContent = 'English Version'; // Se na página em português, botão oferece ir para inglês.
-        }
     }
 
     // Bloco para smooth scrolling (rolagem suave) para links da barra de navegação.
@@ -221,7 +192,137 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         });
 
-        // Hover effects para elementos interativos
+        // Bloco para carregar certificados dinamicamente
+    // Associado a: .certification-list
+    function loadCertifications() {
+        // Verifica se a configuração está disponível
+        if (typeof CERTIFICATIONS_CONFIG === 'undefined') {
+            console.warn('CERTIFICATIONS_CONFIG não encontrado. Carregue certifications-config.js primeiro.');
+            return;
+        }
+
+        // Determina o idioma atual
+        const isEnglish = window.location.pathname.includes('index_en.html');
+        const isSpanish = window.location.pathname.includes('index_es.html');
+        const language = isSpanish ? 'es' : (isEnglish ? 'en' : 'pt');
+        
+        // Determina o caminho base para os certificados
+        const basePath = (isEnglish || isSpanish) ? '../documentos/certificados/' : 'documentos/certificados/';
+
+        // Encontra a lista de certificações no DOM (suporta diferentes estruturas)
+        let certificationList = document.querySelector('.certification-list');
+        if (!certificationList) {
+            // Tenta encontrar pela ID se a classe não existir (versão nova)
+            certificationList = document.querySelector('#certifications-list');
+        }
+        if (!certificationList) {
+            console.warn('Certification list not found');
+            return;
+        }
+
+        // Limpa a lista existente
+        certificationList.innerHTML = '';
+
+        // Converte o objeto de configuração em array e ordena
+        const certifications = Object.entries(CERTIFICATIONS_CONFIG)
+            .map(([filename, config]) => ({ filename, ...config }))
+            .sort((a, b) => {
+                // Ordena por campo 'order' se existir, senão por data, senão alfabeticamente
+                if (a.order !== undefined && b.order !== undefined) {
+                    return a.order - b.order;
+                }
+                if (a.date && b.date) {
+                    return b.date.localeCompare(a.date); // Mais recente primeiro
+                }
+                return a[language].localeCompare(b[language]);
+            });
+
+        // Adiciona cada certificação dinamicamente
+        certifications.forEach(cert => {
+            // Verifica se é a nova estrutura (grid) ou a antiga (lista)
+            const isGridStructure = certificationList.classList.contains('certifications-grid');
+            
+            if (isGridStructure) {
+                // Nova estrutura com cards
+                const certCard = document.createElement('div');
+                certCard.className = 'certification-card';
+                
+                const link = document.createElement('a');
+                link.href = basePath + cert.filename;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.className = 'certification-link';
+                link.textContent = cert[language];
+                
+                certCard.appendChild(link);
+                certificationList.appendChild(certCard);
+            } else {
+                // Estrutura antiga com lista
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                
+                link.href = basePath + cert.filename;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = cert[language];
+                
+                listItem.appendChild(link);
+                certificationList.appendChild(listItem);
+            }
+        });
+
+        // Adiciona seção "Em Progresso" se existir configuração
+        if (typeof IN_PROGRESS_CERTIFICATIONS !== 'undefined' && IN_PROGRESS_CERTIFICATIONS[language]) {
+            // Tenta encontrar container específico para progresso
+            let progressContainer = document.querySelector('#certifications-progress-list');
+            
+            if (progressContainer) {
+                // Versão nova com container específico
+                progressContainer.innerHTML = '';
+                
+                IN_PROGRESS_CERTIFICATIONS[language].forEach(cert => {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'progress-item';
+                    listItem.style.color = '#ffd700';
+                    listItem.style.padding = '8px 0';
+                    listItem.textContent = cert;
+                    progressContainer.appendChild(listItem);
+                });
+            } else {
+                // Versão antiga - adiciona após a lista principal
+                const progressTitle = document.createElement('h4');
+                progressTitle.style.cssText = 'color: var(--accent-color); margin-top: 30px; margin-bottom: 15px;';
+                
+                // Define o título baseado no idioma
+                let titleText = 'Em Progresso';
+                if (language === 'en') titleText = 'In Progress';
+                if (language === 'es') titleText = 'En Progreso';
+                progressTitle.textContent = titleText;
+                
+                const progressList = document.createElement('ul');
+                progressList.className = 'certification-list';
+                
+                IN_PROGRESS_CERTIFICATIONS[language].forEach(cert => {
+                    const listItem = document.createElement('li');
+                    listItem.style.color = '#ffd700';
+                    listItem.textContent = cert;
+                    progressList.appendChild(listItem);
+                });
+
+                // Adiciona após a lista principal
+                const wrapper = certificationList.parentElement;
+                wrapper.appendChild(progressTitle);
+                wrapper.appendChild(progressList);
+            }
+        }
+
+        console.log(`✅ ${certifications.length} certificados carregados automaticamente!`);
+    }
+
+    // Carrega as certificações quando a página estiver pronta
+    loadCertifications();
+
+    // Hover effects para elementos interativos
         const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category, .timeline-content');
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', function() {

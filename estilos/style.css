@@ -1,7 +1,6 @@
 /*
     Código CSS do Portfólio de Davi Castro (davicjc).
     Este código foi originalmente desenvolvido por Davi Castro.
-    Editado e comentado por IA (GitHub Copilot) para facilitar o entendimento de terceiros.
     Reformulado com design Glass Morphism e paleta de cores moderna.
 */
 
@@ -199,6 +198,12 @@ body::after {
     color: var(--primary-color);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+}
+
+.lang-button.active {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.4);
 }
 
 /* Espaçamento para o conteúdo principal */

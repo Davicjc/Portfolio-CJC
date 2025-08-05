@@ -7,7 +7,7 @@ Um portfólio web moderno e responsivo desenvolvido com HTML, CSS e JavaScript, 
 - **Design Glass Morphism**: Interface moderna com efeitos de vidro fosco e transparências
 - **Responsivo**: Totalmente adaptável para desktop, tablet e mobile
 - **Animações Interativas**: Efeitos de partículas, cursor dinâmico e transições suaves
-- **Multi-idioma**: Versões em Português e Inglês
+- **Trilíngue**: Versões em Português, Inglês e Espanhol
 - **Performance Otimizada**: CSS otimizado com variáveis personalizadas
 - **Acessibilidade**: Estrutura semântica e navegação por teclado
 
@@ -35,11 +35,14 @@ Portfolio-CJC/
 ├── 📄 index.html                    # Página principal (Português)
 ├── 📄 README.md                     # Documentação do projeto
 ├── 📁 paginas/                      # Páginas adicionais
-│   └── 📄 index_en.html            # Página principal (Inglês)
+│   ├── 📄 index_en.html            # Página principal (Inglês)
+│   └── 📄 index_es.html            # Página principal (Espanhol)
 ├── 📁 estilos/                      # Arquivos de estilo
 │   └── 📄 style.css                # CSS principal com Glass Morphism
 ├── 📁 scripts/                      # Arquivos JavaScript
-│   └── 📄 script.js                # JavaScript principal
+│   ├── 📄 script.js                # JavaScript principal
+│   ├── 📄 certifications-config.js # Configuração de certificados
+│   └── 📄 README-Certificados.md   # Guia para adicionar certificados
 ├── 📁 imagens/                      # Recursos visuais
 │   └── 📷 profile-pic.jpg          # Foto de perfil
 ├── 📁 documentos/                   # Documentos e certificados
@@ -83,14 +86,21 @@ Portfolio-CJC/
 4. **Acesse no navegador**:
    - Página principal (PT): `http://localhost:8000/index.html`
    - Página em inglês: `http://localhost:8000/paginas/index_en.html`
+   - Página em espanhol: `http://localhost:8000/paginas/index_es.html`
 
 ## 🌐 Funcionalidades
 
 ### Navegação
 - **Barra de navegação fixa**: Sempre visível durante a rolagem
 - **Smooth scrolling**: Rolagem suave entre seções
-- **Troca de idioma**: Botão para alternar entre PT/EN
+- **Troca de idioma**: Botões para alternar entre PT/EN/ES
 - **Links responsivos**: Navegação adaptada para mobile
+
+### Certificações Dinâmicas
+- **Sistema automatizado**: Certificados carregados dinamicamente
+- **Trilíngue**: Nomes em português, inglês e espanhol
+- **Fácil adição**: Apenas adicione o PDF e configure o nome
+- **Ordenação inteligente**: Por data, ordem personalizada ou alfabética
 
 ### Seções
 - **Hero**: Apresentação com foto de perfil e call-to-action
@@ -99,7 +109,7 @@ Portfolio-CJC/
 - **Projetos**: Grid responsivo com projetos destacados
 - **Habilidades**: Categorização de competências técnicas
 - **Formação**: Histórico acadêmico
-- **Certificações**: Lista de cursos e certificados
+- **Certificações**: Lista dinâmica de cursos e certificados (carregamento automático)
 - **Contato**: Informações de contato
 
 ### Efeitos Visuais
@@ -138,6 +148,35 @@ O projeto utiliza uma abordagem mobile-first com breakpoints:
 - Textos e espaçamentos otimizados
 - Touch-friendly buttons
 
+## 🏆 Sistema de Certificados Dinâmico
+
+O portfolio possui um sistema automatizado para gerenciar certificados, eliminando a necessidade de editar código HTML toda vez que um novo certificado for adicionado.
+
+### Como Funciona
+1. **Adicione o PDF**: Coloque o arquivo na pasta `documentos/certificados/`
+2. **Configure o nome**: Edite `scripts/certifications-config.js`
+3. **Pronto!**: O certificado aparece automaticamente no site
+
+### Exemplo de Adição
+```javascript
+// Em certifications-config.js
+'novo-certificado-2025.pdf': {
+    pt: 'Nome do Certificado - Instituição (Data)',
+    en: 'Certificate Name - Institution (Date)',
+    es: 'Nombre del Certificado - Institución (Fecha)',
+    date: '2025-08',  // opcional
+    order: 0  // opcional
+},
+```
+
+### Vantagens
+- ✅ **Sem edição de HTML**: Apenas configure uma vez
+- ✅ **Trilíngue automático**: PT/EN/ES configurados juntos
+- ✅ **Ordenação inteligente**: Por data, ordem ou alfabética
+- ✅ **Certificados em progresso**: Sistema separado para cursos atuais
+
+📖 **Guia completo**: Ver `scripts/README-Certificados.md`
+
 ## 🔧 Personalização
 
 ### Modificar Cores
@@ -159,17 +198,24 @@ As animações estão definidas em:
 - CSS keyframes para animações puras
 - JavaScript para interações complexas
 
-## 🌍 Multi-idioma
+## 🌍 Suporte Trilíngue
 
-O site suporta dois idiomas:
+O site suporta três idiomas:
 - **Português** (`index.html`)
 - **Inglês** (`paginas/index_en.html`)
+- **Espanhol** (`paginas/index_es.html`)
+
+### Navegação entre Idiomas
+- Botões de idioma disponíveis em todas as páginas
+- Estrutura HTML idêntica entre versões
+- Certificados e conteúdo traduzidos automaticamente
 
 ### Adicionar Novo Idioma
 1. Crie uma nova página baseada na estrutura existente
 2. Traduza todo o conteúdo
 3. Atualize os links de navegação
 4. Modifique o JavaScript para incluir o novo idioma
+5. Adicione traduções no `certifications-config.js`
 
 ## 📊 Performance
 
@@ -231,6 +277,21 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 ---
 
 ### 📝 Notas de Versão
+
+**Versão 3.2**
+- Implementação completa do suporte trilíngue (Português, Inglês, Espanhol)
+- Sistema de certificados expandido para três idiomas com traduções completas
+- Navegação entre idiomas totalmente funcional com botões dedicados
+- Estrutura HTML completamente unificada entre todas as versões linguísticas
+- Correções de compatibilidade e otimizações de carregamento
+- Documentação atualizada com guias trilíngues
+
+**Versão 3.1**
+- Adicionado suporte trilíngue (Português, Inglês, Espanhol)
+- Sistema de certificados expandido para três idiomas
+- Navegação entre idiomas aprimorada
+- Estrutura HTML unificada entre todas as versões
+- Correções de compatibilidade com navegadores
 
 **Versão 3.0**
 - Reorganização completa da estrutura de pastas

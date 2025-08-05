@@ -1,18 +1,11 @@
 <!--
-    HTML Code for Davi Castro's Portfolio (davic                <!-- Profile photo in Hero section. Associated with: Profile Image -->
-                <img src="../imagens/profile-pic.jpg" alt="Photo of Davi Castro" class="profile-pic-hero">).
+    HTML Code for Davi Castro's Portfolio (davicjc).
     This code was originally developed by Davi Castro.
-    Edited and commented by AI (GitHub Copilot) to facilitate third-party understanding.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Sets the character set to UTF-8    </footer>
-
-    <!-- Link to the main JavaScript file. Associated with: script.js -->
-    <script src="script.js"></script>
-</body>
-</html>orting various characters. -->
+    <!-- Sets the character set to UTF-8, supporting various characters. -->
     <meta charset="UTF-8">
     <!-- Configures the viewport for responsiveness, adjusting width to device and initial scale. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +47,7 @@
             <!-- Hero section content. -->
             <div class="hero-content">
                 <!-- Profile picture in the Hero section. Associated with: Profile Image -->
-                <img src="profile-pic.jpg" alt="Photo of Davi Castro" class="profile-pic-hero">
+                <img src="../imagens/profile-pic.jpg" alt="Photo of Davi Castro" class="profile-pic-hero">
                 <!-- Main name displayed. -->
                 <h1>Davi Castro</h1>
                 <!-- Call to Action button for contact. Associated with: #contato -->
@@ -62,8 +55,12 @@
             </div>
             <!-- Button to download resume with the same style as lang-button -->
             <a href="../documentos/curriculo.pdf" download="curriculo.pdf" class="lang-button" style="display: block; margin: 16px auto 0 auto; text-decoration: none; padding: 10px 20px;">Download Resume PT/EN</a>
-            <!-- Button to switch site language. Associated with: script.js (language switch logic) -->
-            <button id="lang-switcher" class="lang-button" style="display: block; margin: 10px auto 0 auto;">Portuguese Version</button>
+            <!-- Buttons to switch site language. Associated with: script.js (language switch logic) -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin: 10px auto 0 auto;">
+                <a href="../index.html" class="lang-button" style="padding: 8px 16px; text-decoration: none;">Português</a>
+                <button class="lang-button active" style="padding: 8px 16px;">English</button>
+                <a href="index_es.html" class="lang-button" style="padding: 8px 16px; text-decoration: none;">Español</a>
+            </div>
             <!-- Description or instruction in the Hero section. -->
             <p class="hero-description" style="margin-top: 24px;">Scroll down to learn more about me.</p>
             <!-- Arrow element to indicate scrolling to the next section. Associated with: #sobre-mim -->
@@ -252,23 +249,9 @@
             <h2 class="section-title">Certifications</h2>
             <!-- Wrapper to apply card style -->
             <div class="certification-card-wrapper">
-                <!-- List of certifications. -->
-                <ul class="certification-list">
-                    <li><a href="../documentos/certificados/prompt-windows-alura.pdf" target="_blank" rel="noopener noreferrer">Windows Prompt - Alura (March 2022)</a></li>
-                    <li><a href="../documentos/certificados/python-alura.pdf" target="_blank" rel="noopener noreferrer">Python - Alura (December 2021)</a></li>
-                    <li><a href="../documentos/certificados/seguranca-hacker-rangers.pdf" target="_blank" rel="noopener noreferrer">Information Security - Hacker Rangers Brasil</a></li>
-                    <li><a href="../documentos/certificados/ingles-alura.pdf" target="_blank" rel="noopener noreferrer">English - Alura (June 2021)</a></li>
-                    <li><a href="../documentos/certificados/ingles-wizard.pdf" target="_blank" rel="noopener noreferrer">English - Wizard by Pearson (December 2019)</a></li>
-                    <li><a href="../documentos/certificados/codigo-conduta-algar.pdf" target="_blank" rel="noopener noreferrer">Code of Conduct - Algar Telecom</a></li>
-                    <li><a href="../documentos/certificados/lgpd-algar.pdf" target="_blank" rel="noopener noreferrer">LGPD - Algar Telecom</a></li>
-                </ul>
-                
-                <!-- In Progress Section -->
-                <h4 style="color: var(--accent-color); margin-top: 30px; margin-bottom: 15px;">In Progress</h4>
-                <ul class="certification-list">
-                    <li style="color: #ffd700;">Java - Udemy (Expected: End of 2025)</li>
-                    <li style="color: #ffd700;">English - Duolingo (Hobby and linguistic support) ∞</li>
-                    <li style="color: #ffd700;">AWS - Amazon Web Services (Expected: End of 2025)</li>
+                <!-- List of certifications (loaded dynamically via JavaScript) -->
+                <ul class="certification-list" id="dynamic-certifications">
+                    <!-- Certificates will be loaded automatically here -->
                 </ul>
                 
                 <!-- Text with link to LinkedIn profile. -->
@@ -297,9 +280,11 @@
         <!-- Copyright and dynamic year. Associated with: script.js (year update) -->
         <p>&copy; <span id="year"></span> Davi Castro. All rights reserved.</p>
         <!-- Site version information. -->
-        <p>Version 3.1</p>
+        <p>Version 3.2</p>
     </footer>
 
+    <!-- Link to the certifications configuration file -->
+    <script src="../scripts/certifications-config.js"></script>
     <!-- Link to the main JavaScript file. Associated with: ../scripts/script.js -->
     <script src="../scripts/script.js"></script>
 </body>
