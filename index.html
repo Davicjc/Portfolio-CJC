@@ -60,19 +60,19 @@
                 <a href="#contato" class="cta-button">Entre em Contato</a>
             </div>
             <!-- Botão para download do currículo com o mesmo estilo do lang-button -->
-            <a href="documentos/curriculo.pdf" download="curriculo.pdf" class="lang-button" style="display: block; margin: 16px auto 0 auto; text-decoration: none; padding: 10px 20px;">Download Currículo PT/EN</a>
+            <a href="documentos/curriculo.pdf" download="curriculo.pdf" class="lang-button download-curriculum">Download Currículo PT/EN</a>
             <!-- Botões para alternar idioma do site. Associado a: script.js (lógica de troca de idioma) -->
-            <div style="display: flex; justify-content: center; gap: 10px; margin: 10px auto 0 auto;">
-                <button class="lang-button active" style="padding: 8px 16px;">Português</button>
-                <a href="paginas/index_en.html" class="lang-button" style="padding: 8px 16px; text-decoration: none;">English</a>
-                <a href="paginas/index_es.html" class="lang-button" style="padding: 8px 16px; text-decoration: none;">Español</a>
+            <div class="lang-container">
+                <span class="lang-button active lang-button-style">Português</span>
+                <a href="paginas/index_en.html" class="lang-button lang-button-style">English</a>
+                <a href="paginas/index_es.html" class="lang-button lang-button-style">Español</a>
             </div>
             <!-- Descrição ou instrução na seção Hero. -->
-            <p class="hero-description" style="margin-top: 24px;">Role para baixo para saber mais sobre mim.</p>
+            <p class="hero-description hero-description-spacing">Role para baixo para saber mais sobre mim.</p>
             <!-- Elemento de seta para indicar rolagem para a próxima seção. Associado a: #sobre-mim -->
-            <div style="text-align: center; margin-top: 10px;">
-                <a href="#sobre-mim" style="text-decoration: none;">
-                    <span style="font-size: 2.5rem; display: inline-block; cursor: pointer;">&#8595;</span>
+            <div class="arrow-container">
+                <a href="#sobre-mim" class="arrow-link">
+                    <span class="arrow-symbol">&#8595;</span>
                 </a>
             </div>
         </section>
@@ -161,7 +161,7 @@
                     </p>
                     <p><strong>Tecnologias utilizadas:</strong> Python, OpenCV, Machine Learning, Algoritmos de Visão Computacional, Tkinter, Manipulação de Banco de Dados</p>
                     <!-- Galeria de imagens do projeto. -->
-                    <div class="project-gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="project-gallery-grid">
                         <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/1-Lobby.jpg?raw=true" width="55%" alt="Página inicial do programa"></div>
                         <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/4-Scanner.jpg?raw=true" width="50%" alt="Tela do scanner facial"></div>
                         <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/2-Add.jpg?raw=true" width="70%" alt="Tela de adicionar pessoa"></div>
@@ -288,21 +288,21 @@
         <!-- Informação de versão do site. -->
         <p>Versão 3.5</p>
         <!-- Informação sobre último update -->
-        <p style="font-size: 0.8rem; color: var(--text-color-dark); margin-top: 10px;">
+        <p class="footer-small-text">
             <strong>Último Update:</strong> Adicionados controles de efeitos visuais (🌟 HD / 🥔 Potato Mode) para melhor performance e acessibilidade.
         </p>
         
         <!-- Seção para desenvolvedores interessados -->
-        <div style="margin-top: 20px; padding: 15px; background: var(--glass-bg); border-radius: var(--border-radius-small); border: 1px solid var(--glass-border);">
-            <p style="font-size: 0.9rem; color: var(--text-color-medium); margin: 0;">
+        <div class="footer-promotion">
+            <p class="footer-promotion-text">
                 💡 <strong>Gostou deste portfólio?</strong> 
-                <a href="https://github.com/Davicjc/Portfolio-CJC" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none;">
+                <a href="https://github.com/Davicjc/Portfolio-CJC" target="_blank" rel="noopener noreferrer" class="footer-link">
                     Acesse o repositório no GitHub
                 </a>
             </p>
-            <p style="font-size: 0.8rem; color: var(--text-color-dark); margin: 5px 0 0 0;">
+            <p class="footer-license-text">
                 ⚖️ <strong>Atenção às licenças:</strong> 
-                <a href="LICENSE" target="_blank" style="color: var(--accent-secondary); text-decoration: none;">
+                <a href="LICENSE" target="_blank" class="footer-license-link">
                     Leia os termos de uso
                 </a> antes de utilizar o código.
             </p>

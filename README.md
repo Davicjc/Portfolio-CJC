@@ -95,8 +95,6 @@ Portfolio-CJC/
     │   ├── 📄 ingles-wizard.pdf
     │   ├── 📄 codigo-conduta-algar.pdf
     │   └── 📄 lgpd-algar.pdf
-    └── 📁 outros/                  # Outros documentos
-        └── 📄 curriculo em html.html
 ```
 
 ## 🚀 Como Executar
