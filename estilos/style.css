@@ -30,6 +30,8 @@
     --mouseY: 50vh;
     --mouseMoving: 0;
     --hover-intensity: 0;
+    /* Effects Control Variables */
+    --effects-enabled: 1;
 }
 
 /* Reset Básico */
@@ -217,6 +219,238 @@ body::after {
 /* Espaçamento para o conteúdo principal */
 main {
     padding-top: 50px;
+}
+
+/* Controles de Efeitos - Botões Discretos */
+.effects-control {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.effects-control button {
+    min-width: 45px;
+    height: 35px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    font-family: var(--main-font);
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.effects-control button:hover {
+    opacity: 1;
+    background: rgba(10, 10, 15, 0.9);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+    transform: scale(1.1);
+}
+
+.effects-control button.active {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    opacity: 1;
+    border-color: var(--accent-color);
+}
+
+.effects-control button.active:hover {
+    background: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
+/* Estados dos efeitos */
+body.effects-disabled .dark-section,
+body.effects-disabled .timeline-content,
+body.effects-disabled .project-card,
+body.effects-disabled .skill-category,
+body.effects-disabled .education-entry,
+body.effects-disabled .certification-list li,
+body.effects-disabled .contact-info-block,
+body.effects-disabled #main-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(20, 20, 30, 0.8) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Desativa todos os efeitos hover no modo potato */
+body.effects-disabled .dark-section:hover,
+body.effects-disabled .timeline-content:hover,
+body.effects-disabled .project-card:hover,
+body.effects-disabled .skill-category:hover,
+body.effects-disabled .education-entry:hover,
+body.effects-disabled .certification-list li:hover,
+body.effects-disabled .contact-info-block:hover {
+    transform: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Desativa pseudo-elementos no modo potato */
+body.effects-disabled .dark-section::before,
+body.effects-disabled .timeline-content::before,
+body.effects-disabled .project-card::before,
+body.effects-disabled .project-card::after,
+body.effects-disabled .skill-category::before,
+body.effects-disabled .education-entry::before,
+body.effects-disabled .certification-list li::before,
+body.effects-disabled .contact-info-block::before {
+    display: none !important;
+}
+
+/* Desativa efeitos de cursor e overlay */
+body.effects-disabled::before,
+body.effects-disabled::after {
+    display: none !important;
+}
+
+/* Simplifica foto de perfil */
+body.effects-disabled .profile-pic-hero {
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2) !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+body.effects-disabled .profile-pic-hero:hover {
+    transform: none !important;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2) !important;
+}
+
+body.effects-disabled .profile-pic-hero::before {
+    display: none !important;
+}
+
+/* Desativa ripples e partículas */
+body.effects-disabled .liquid-ripple {
+    display: none !important;
+}
+
+body.effects-disabled #particle-canvas {
+    display: none !important;
+}
+
+/* Desativa hover em botões e links */
+body.effects-disabled .cta-button:hover {
+    transform: none !important;
+    box-shadow: 0 8px 32px rgba(100, 255, 218, 0.3) !important;
+}
+
+body.effects-disabled .cta-button::before,
+body.effects-disabled .cta-button::after {
+    display: none !important;
+}
+
+/* Desativa hover em links de navegação */
+body.effects-disabled #main-header .nav-links li a:hover {
+    transform: none !important;
+}
+
+body.effects-disabled #main-header .nav-links li a::before {
+    display: none !important;
+}
+
+/* Desativa hover em botões de idioma */
+body.effects-disabled .lang-button:hover {
+    transform: none !important;
+}
+
+/* Desativa hover em skills */
+body.effects-disabled .skill-category ul li:hover {
+    transform: none !important;
+    color: var(--text-color-medium) !important;
+}
+
+/* Desativa hover em links de projeto */
+body.effects-disabled .project-link:hover {
+    transform: none !important;
+}
+
+/* Desativa animações de gradiente */
+body.effects-disabled .profile-pic-hero::before {
+    animation: none !important;
+}
+
+/* Força hardware acceleration OFF */
+body.effects-disabled * {
+    will-change: auto !important;
+    transform: translateZ(0) !important;
+}
+
+/* Otimizações extremas para modo potato */
+body.effects-disabled {
+    /* Remove todas as animações */
+    animation: none !important;
+}
+
+body.effects-disabled *,
+body.effects-disabled *::before,
+body.effects-disabled *::after {
+    /* Remove todas as transições */
+    transition: none !important;
+    /* Remove todas as animações */
+    animation: none !important;
+    /* Remove transformações */
+    transform: none !important;
+    /* Remove filtros pesados */
+    filter: none !important;
+    /* Remove efeitos de blend */
+    mix-blend-mode: normal !important;
+    /* Força modo de composição simples */
+    will-change: auto !important;
+}
+
+/* Simplifica completamente os elementos no modo potato */
+body.effects-disabled .section-title {
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+body.effects-disabled .section-title::after {
+    display: none !important;
+}
+
+/* Remove efeitos de texto gradiente no modo potato */
+body.effects-disabled .hero-content h1,
+body.effects-disabled .section-title,
+body.effects-disabled .project-card h3,
+body.effects-disabled .skill-category h4,
+body.effects-disabled #main-header .logo {
+    background: none !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    filter: none !important;
+}
+
+/* Simplifica timeline no modo potato */
+body.effects-disabled .timeline::before {
+    box-shadow: none !important;
+}
+
+body.effects-disabled .timeline-item::before {
+    box-shadow: none !important;
 }
 
 /* Estilos Gerais de Seção */
@@ -1013,6 +1247,18 @@ main {
         padding-top: 45px;
     }
 
+    .effects-control {
+        top: 50px;
+        right: 10px;
+    }
+
+    .effects-control button {
+        min-width: 40px;
+        height: 30px;
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+
     .hero-section {
         min-height: calc(100vh - 45px);
     }
@@ -1086,6 +1332,19 @@ main {
 
     main {
         padding-top: 40px;
+    }
+
+    .effects-control {
+        top: 45px;
+        right: 8px;
+    }
+
+    .effects-control button {
+        min-width: 35px;
+        height: 28px;
+        font-size: 8px;
+        padding: 3px 6px;
+        gap: 3px;
     }
 
     .hero-section {

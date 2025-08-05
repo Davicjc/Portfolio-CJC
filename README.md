@@ -5,11 +5,12 @@ Um portfólio web moderno e responsivo desenvolvido com HTML, CSS e JavaScript, 
 ## 🌟 Características Principais
 
 - **Design Glass Morphism**: Interface moderna com efeitos de vidro fosco e transparências
+- **Controles de Efeitos**: Botões para alternar entre modo HD (🌟) e Potato (🥔) para performance
 - **Responsivo**: Totalmente adaptável para desktop, tablet e mobile
 - **Animações Interativas**: Efeitos de partículas, cursor dinâmico e transições suaves
 - **Trilíngue**: Versões em Português, Inglês e Espanhol
-- **Performance Otimizada**: CSS otimizado com variáveis personalizadas
-- **Acessibilidade**: Estrutura semântica e navegação por teclado
+- **Performance Otimizada**: CSS otimizado com variáveis personalizadas e modo ultra-leve
+- **Acessibilidade**: Estrutura semântica, navegação por teclado e compatibilidade com dispositivos antigos
 
 ## 🎨 Tecnologias Utilizadas
 
@@ -45,18 +46,18 @@ Portfolio-CJC/
 │   └── 📄 README-Certificados.md   # Guia para adicionar certificados
 ├── 📁 imagens/                      # Recursos visuais
 │   └── 📷 profile-pic.jpg          # Foto de perfil
-├── 📁 documentos/                   # Documentos e certificados
-│   ├── 📄 curriculo.pdf            # Currículo em PDF
-│   ├── 📁 certificados/            # Certificações
-│   │   ├── 📄 prompt-windows-alura.pdf
-│   │   ├── 📄 python-alura.pdf
-│   │   ├── 📄 seguranca-hacker-rangers.pdf
-│   │   ├── 📄 ingles-alura.pdf
-│   │   ├── 📄 ingles-wizard.pdf
-│   │   ├── 📄 codigo-conduta-algar.pdf
-│   │   └── 📄 lgpd-algar.pdf
-│   └── 📁 outros/                  # Outros documentos
-│       └── 📄 curriculo em html.html
+└── 📁 documentos/                   # Documentos e certificados
+    ├── 📄 curriculo.pdf            # Currículo em PDF
+    ├── 📁 certificados/            # Certificações
+    │   ├── 📄 prompt-windows-alura.pdf
+    │   ├── 📄 python-alura.pdf
+    │   ├── 📄 seguranca-hacker-rangers.pdf
+    │   ├── 📄 ingles-alura.pdf
+    │   ├── 📄 ingles-wizard.pdf
+    │   ├── 📄 codigo-conduta-algar.pdf
+    │   └── 📄 lgpd-algar.pdf
+    └── 📁 outros/                  # Outros documentos
+        └── 📄 curriculo em html.html
 ```
 
 ## 🚀 Como Executar
@@ -96,6 +97,13 @@ Portfolio-CJC/
 - **Troca de idioma**: Botões para alternar entre PT/EN/ES
 - **Links responsivos**: Navegação adaptada para mobile
 
+### Controles de Efeitos Visuais
+- **Modo HD (🌟)**: Todos os efeitos visuais habilitados para melhor experiência
+- **Modo Potato (🥔)**: Ultra-otimização para dispositivos com menor capacidade
+- **Persistência**: Preferências salvas automaticamente no localStorage
+- **Posicionamento discreto**: Botões no canto superior direito
+- **Acessibilidade**: Alternativa para dispositivos antigos ou conexões lentas
+
 ### Certificações Dinâmicas
 - **Sistema automatizado**: Certificados carregados dinamicamente
 - **Trilíngue**: Nomes em português, inglês e espanhol
@@ -118,6 +126,44 @@ Portfolio-CJC/
 - **Hover animations**: Interações suaves em cards e botões
 - **Gradient borders**: Bordas com gradientes animados
 - **Backdrop blur**: Efeitos de desfoque para Glass Morphism
+- **Controles de Performance**: Sistema HD/Potato para otimização automática
+
+### Sistema de Controles de Efeitos
+
+O portfolio inclui um sistema inteligente de controle de performance:
+
+#### Modo HD (🌟)
+- Todos os efeitos visuais ativos
+- Animações de partículas em canvas
+- Efeitos de backdrop-filter e blur
+- Transições e transformações suaves
+- Gradientes animados e hover effects
+
+#### Modo Potato (🥔)
+- **Ultra-otimização** para máxima performance
+- Desativa todas as animações e transições
+- Remove efeitos de backdrop-filter pesados
+- Simplifica gradientes e sombras
+- Ideal para dispositivos antigos ou conexões lentas
+
+#### Implementação Técnica
+```css
+/* Exemplo de otimização no modo potato */
+body.effects-disabled *,
+body.effects-disabled *::before,
+body.effects-disabled *::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+```
+
+#### Persistência
+- Estado salvo em `localStorage`
+- Carregamento automático da preferência
+- Funciona em todas as páginas trilíngues
 
 ## 🎨 Paleta de Cores
 
@@ -224,12 +270,21 @@ O site suporta três idiomas:
 - **Lazy loading**: Imagens carregadas conforme necessário
 - **Backdrop-filter**: Efeitos GPU-accelerated
 - **Smooth animations**: Transform e opacity para melhor performance
+- **Modo Potato**: Ultra-otimização com desativação completa de efeitos pesados
 
 ### Métricas Alvo
 - **Lighthouse Score**: > 90
 - **First Contentful Paint**: < 2s
 - **Largest Contentful Paint**: < 3s
 - **Cumulative Layout Shift**: < 0.1
+
+### Estatísticas do Projeto
+- **Linhas de código CSS**: ~1000+ (incluindo comentários e otimizações)
+- **Arquivos JavaScript**: 3 módulos organizados
+- **Suporte a idiomas**: 3 (Português, Inglês, Espanhol)
+- **Certificados gerenciados**: 7+ com sistema dinâmico
+- **Seções do portfolio**: 8 seções completas
+- **Responsividade**: 3 breakpoints (mobile, tablet, desktop)
 
 ## 🔒 Compatibilidade
 
@@ -277,6 +332,15 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 ---
 
 ### 📝 Notas de Versão
+
+**Versão 3.5** *(Atual - Agosto 2025)*
+- 🎮 **Controles de Efeitos Visuais**: Adicionados botões discretos (🌟 HD / 🥔 Potato Mode)
+- ⚡ **Modo Potato**: Ultra-otimização para dispositivos com menor capacidade
+- 🔄 **Persistência de Preferências**: Estado dos efeitos salvo no localStorage
+- 🎨 **Design Aprimorado**: Botões informativos com ícones e tooltips
+- 🚀 **Performance**: Desativação completa de transições, animações e efeitos pesados no modo Potato
+- ♿ **Acessibilidade**: Melhor experiência para dispositivos antigos e conexões lentas
+- 🌍 **Suporte Trilíngue Completo**: Controles funcionais em PT/EN/ES
 
 **Versão 3.2**
 - Implementação completa do suporte trilíngue (Português, Inglês, Espanhol)

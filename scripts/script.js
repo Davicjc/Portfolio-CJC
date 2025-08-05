@@ -322,6 +322,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carrega as certificações quando a página estiver pronta
     loadCertifications();
 
+    // Controle de Efeitos Visuais
+    function initEffectsControl() {
+        const enableBtn = document.getElementById('enableEffects');
+        const disableBtn = document.getElementById('disableEffects');
+        const body = document.body;
+
+        // Carrega o estado salvo ou usa o padrão (ativado)
+        const savedState = localStorage.getItem('effectsEnabled');
+        const effectsEnabled = savedState !== null ? savedState === 'true' : true;
+
+        function updateEffectsState(enabled) {
+            if (enabled) {
+                body.classList.remove('effects-disabled');
+                enableBtn.classList.add('active');
+                disableBtn.classList.remove('active');
+                localStorage.setItem('effectsEnabled', 'true');
+            } else {
+                body.classList.add('effects-disabled');
+                enableBtn.classList.remove('active');
+                disableBtn.classList.add('active');
+                localStorage.setItem('effectsEnabled', 'false');
+            }
+        }
+
+        // Aplica o estado inicial
+        updateEffectsState(effectsEnabled);
+
+        // Event listeners para os botões
+        if (enableBtn) {
+            enableBtn.addEventListener('click', () => updateEffectsState(true));
+        }
+
+        if (disableBtn) {
+            disableBtn.addEventListener('click', () => updateEffectsState(false));
+        }
+    }
+
+    // Inicializa o controle de efeitos
+    initEffectsControl();
+
     // Hover effects para elementos interativos
         const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category, .timeline-content');
         interactiveElements.forEach(element => {
