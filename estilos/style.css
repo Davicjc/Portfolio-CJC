@@ -94,7 +94,7 @@ body::after {
 
 /* Cabeçalho e Navegação */
 #main-header {
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(25px) saturate(180%) brightness(110%);
     -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(110%);
     border-bottom: 1px solid rgba(100, 255, 218, 0.15);
@@ -103,9 +103,17 @@ body::after {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
     min-height: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Garantir que o header fique sempre no topo */
+#main-header {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 9999 !important;
 }
 
 #main-header nav {
@@ -966,6 +974,9 @@ main {
 
     #main-header {
         min-height: 45px;
+        position: fixed !important;
+        top: 0 !important;
+        z-index: 9999 !important;
     }
 
     #main-header .nav-links {
@@ -1053,6 +1064,9 @@ main {
 @media (max-width: 480px) {
     #main-header {
         min-height: 40px;
+        position: fixed !important;
+        top: 0 !important;
+        z-index: 9999 !important;
     }
 
     #main-header nav {
