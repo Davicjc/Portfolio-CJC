@@ -879,6 +879,32 @@ body.effects-disabled .timeline-item::before {
     transform: translateY(-2px);
 }
 
+.project-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.project-actions .cta-button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: var(--border-radius-small);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-actions .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(var(--accent-color-rgb), 0.3);
+}
+
 /* Habilidades */
 .skills-showcase {
     display: grid;
