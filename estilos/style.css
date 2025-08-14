@@ -661,6 +661,30 @@ body.effects-disabled .timeline-item::before {
     box-shadow: 0 15px 60px rgba(100, 255, 218, 0.5);
 }
 
+/* Container para múltiplos botões CTA */
+.cta-buttons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Estilo para botão CTA secundário */
+.cta-secondary {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border: 2px solid var(--secondary-color);
+}
+
+.cta-secondary::before {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+}
+
+.cta-secondary:hover {
+    box-shadow: 0 15px 60px rgba(255, 107, 107, 0.5);
+}
+
 /* Seção Sobre Mim */
 .about-content p {
     font-size: 1.1rem;
@@ -1330,6 +1354,17 @@ main {
 
     .contact-info-block {
         padding: 30px 20px;
+    }
+
+    .cta-buttons-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cta-buttons-container .cta-button {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
     }
 }
 
