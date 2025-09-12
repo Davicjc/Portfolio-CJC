@@ -1366,6 +1366,15 @@ main {
         max-width: 250px;
         text-align: center;
     }
+
+    .footer-partnership {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .partnership-logo {
+        height: 40px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1419,6 +1428,15 @@ main {
     .cta-button {
         padding: 0.7rem 1.5rem;
         font-size: 1rem;
+    }
+
+    .footer-partnership {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .partnership-logo {
+        height: 35px;
     }
 }
 
@@ -1526,6 +1544,31 @@ a:hover::before, button:hover::before {
     font-size: 0.8rem;
     color: var(--text-color-dark);
     margin-top: 10px;
+}
+
+.footer-partnership {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+}
+
+.partnership-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.partnership-logo {
+    height: 50px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.partnership-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .footer-promotion {
