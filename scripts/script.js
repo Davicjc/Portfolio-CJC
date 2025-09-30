@@ -373,5 +373,96 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.setProperty('--hover-intensity', '0');
             });
         });
+
+    // Inicialização do modal de imagens
+    initImageModal();
+    
+    // Correção forçada do letter-spacing
+    fixLetterSpacing();
     })();
 });
+
+// Funções do Modal de Imagens
+function initImageModal() {
+    // Adiciona event listeners para todas as imagens de projetos (incluindo galeria)
+    const projectImages = document.querySelectorAll('.project-image, .project-gallery-grid img');
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            openImageModal(this.src, this.alt);
+        });
+        // Adiciona estilo de cursor pointer para indicar que é clicável
+        img.style.cursor = 'pointer';
+    });
+
+    // Event listener para fechar modal com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+
+    // Event listener para fechar modal clicando no fundo
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeImageModal();
+            }
+        });
+    }
+}
+
+function openImageModal(imageSrc, imageAlt) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    if (modal && modalImage && modalCaption) {
+        modalImage.src = imageSrc;
+        modalImage.alt = imageAlt;
+        modalCaption.textContent = imageAlt;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Previne scroll do body
+    }
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll do body
+        
+        // Limpa a imagem após animação
+        setTimeout(() => {
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            if (modalImage && modalCaption) {
+                modalImage.src = '';
+                modalImage.alt = '';
+                modalCaption.textContent = '';
+            }
+        }, 300);
+    }
+
+    // Correção forçada para letter-spacing dos títulos
+    fixLetterSpacing();
+}
+
+// Função para corrigir letter-spacing via JavaScript
+function fixLetterSpacing() {
+    // Seleciona todos os h3 de projetos
+    const projectTitles = document.querySelectorAll('.project-timeline-item h3, .project-side-by-side h3, .project-timeline-content h3');
+    
+    projectTitles.forEach(title => {
+        title.style.letterSpacing = '0px';
+        title.style.wordSpacing = '0px';
+        title.style.fontFamily = 'Montserrat, sans-serif';
+        title.style.fontVariant = 'normal';
+        title.style.textRendering = 'auto';
+        title.style.fontKerning = 'auto';
+    });
+    
+    console.log('Letter-spacing corrigido para', projectTitles.length, 'títulos');
+}

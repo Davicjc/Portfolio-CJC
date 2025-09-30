@@ -8,7 +8,21 @@
     <!-- Define el conjunto de caracteres para UTF-8, soportando acentos y caracteres especiales. -->
     <meta charset="UTF-8">
     <!-- Configura la viewport para responsividad, ajustando el ancho al dispositivo y escala inicial. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" conten    </footer>
+
+    <!-- Modal para expansión de imágenes -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeImageModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo de configuración de certificaciones -->
+    <script src="../scripts/certifications-config.js"></script>
+    <!-- Enlace al archivo JavaScript principal. Asociado a: scripts/script.js -->
+    <script src="../scripts/script.js"></script>th=device-width, initial-scale=1.0">
     <!-- Título de la página mostrado en la pestaña del navegador. Asociado a: Pestaña del Navegador -->
     <title>Davi Castro - Desarrollador Back-End</title>
     <!-- Favicon - ícono mostrado en la pestaña del navegador -->
@@ -156,34 +170,106 @@
         <section id="projetos" class="section-padding">
             <!-- Título de la sección. -->
             <h2 class="section-title">Proyectos Destacados</h2>
-            <!-- Grid para exhibición de proyectos. -->
-            <div class="projects-grid">
-                <!-- Tarjeta de proyecto individual (Portafolio Interactivo). -->
-                <article class="project-card">
-                    <h3>Portafolio Interactivo con Efectos Liquid Glass</h3>
-                    <p class="project-info"><strong>Proyecto Personal</strong> (Desarrollo Web Front-End)</p>
-                    <p class="date-info">Junio 2025</p>
-                    <p>
-                        Portafolio web moderno e interactivo desarrollado con HTML5, CSS3 y JavaScript vanilla. Implementa efectos visuales avanzados de "liquid glass" con morfismo de vidrio, sistema de partículas animadas, cursor interactivo con efectos de ondas y diseño responsivo. El proyecto demuestra competencias en desarrollo front-end moderno, animaciones CSS avanzadas, manipulación de Canvas API y técnicas de UX/UI contemporáneas.
-                    </p>
-                    <p><strong>Tecnologías utilizadas:</strong> HTML5, CSS3, JavaScript ES6+, Canvas API, CSS Grid/Flexbox, Git, GitHub Pages</p>
+            <!-- Contenedor para organización de proyectos -->
+            <div class="projects-timeline">
+                <div class="projects-grid">
+                <!-- Proyecto Hub Audicom -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Hub.jpg" alt="Hub Audicom - Interfaz de plataforma centralizada" class="project-image float-left">
+                        <h3>Hub Audicom</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Plataforma Corporativa Integrada</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Plataforma empresarial centralizada que unifica todos los sistemas operacionales esenciales de la empresa en una interfaz moderna y responsive. Desarrollada con JavaScript ES6+, Python y API REST, la solución transformó procesos fragmentados en un ecosistema integrado, implementando sistema de tickets con categorización automática, gestión completa de routers, control de inventario, scripts de atención estandarizados, asistente de IA 24/7 y sistema de documentación con búsqueda avanzada. El resultado fue una reducción del 60% en el tiempo de resolución de tickets e integración completa de los procesos operacionales de la empresa.
+                        </p>
+                    </div>
                 </article>
-                
-                <!-- Tarjeta de proyecto individual (Software de Reconocimiento Facial). -->
-                <article class="project-card">
-                    <h3>Software de Reconocimiento Facial y Seguridad</h3>
-                    <p class="project-info"><strong>Universidad de Uberaba</strong> (Proyecto Académico Aplicado)</p>
-                    <p class="date-info">Marzo 2023 – Mayo 2023</p>
-                    <p>
-                        Este proyecto consiste en un software de reconocimiento facial desarrollado en Python, con enfoque en seguridad y automatización de procesos. El sistema permite registrar, remover e identificar personas a través de imágenes capturadas por la cámara, haciendo el control de acceso más eficiente y seguro para empresas e instituciones. Proyecto clasificado en 1º lugar entre 60 proyectos académicos.
-                    </p>
-                    <p><strong>Tecnologías utilizadas:</strong> Python, OpenCV, Machine Learning, Algoritmos de Visión Computacional, Tkinter, Manipulación de Base de Datos</p>
-                    <!-- Galería de imágenes del proyecto. -->
-                    <div class="project-gallery-grid">
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/1-Lobby.jpg?raw=true" width="55%" alt="Página inicial del programa"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/4-Scanner.jpg?raw=true" width="50%" alt="Pantalla del escáner facial"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/2-Add.jpg?raw=true" width="70%" alt="Pantalla de agregar persona"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/3-Rmv.jpg?raw=true" width="70%" alt="Pantalla de remover persona"></div>
+
+                <!-- Proyecto IA Audinha -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Audinha.jpg" alt="IA Audinha - Asistente virtual de soporte técnico" class="project-image float-left">
+                        <h3>IA Audinha</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Asistente de Inteligencia Artificial</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Asistente virtual especializado en soporte técnico para telecomunicaciones, desarrollado con Python, Machine Learning, NLP y TensorFlow. El sistema autónomo proporciona diagnósticos automáticos con 95% de precisión, integra base de conocimiento técnico, ofrece resolución guiada personalizada por equipo, realiza análisis automático de logs, soporte multilingüe en portugués, inglés y español, y conexión directa con sistemas de tickets vía API. Con tiempo promedio de respuesta de 2 segundos, resuelve 80% de los casos sin necesidad de escalación humana.
+                        </p>
+                    </div>
+                </article>
+                    </div>
+                </article>
+
+                <!-- Proyecto Scripts de Atención -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Scripts.jpg" alt="Scripts de Atención - Interfaz de corrección con IA" class="project-image float-left">
+                        <h3>Scripts de Atención con IA Correctora</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Sistema de Comunicación Automatizada</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Sistema inteligente de estandarización de comunicación corporativa desarrollado con JavaScript ES6+, NLP y API REST. La plataforma implementa corrección lingüística automática para gramática y tono profesional, utiliza scripts estandarizados con templates para escenarios técnicos recurrentes, ofrece campos dinámicos con validación automática, posee workflow integrado para creación, corrección y aprobación de comunicaciones, control de calidad con análisis de conformidad corporativa e historial completo para trazabilidad. El resultado fue una reducción del 90% en errores de comunicación y estandarización completa de la atención técnica.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Proyecto Sistema de Tickets -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Sistema-de-Chamados.jpg" alt="Sistema de Tickets - Dashboard de control" class="project-image float-left">
+                        <h3>Sistema de Tickets</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Plataforma de Gestión de Tickets</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Sistema completo de gestión de tickets y solicitudes técnicas desarrollado con JavaScript ES6+, Node.js y WebSocket. La plataforma centraliza todas las demandas operacionales en interfaz unificada, implementando categorización inteligente automática por prioridad y departamento, workflow personalizado basado en reglas de negocio, dashboard ejecutivo con métricas de SLA y performance en tiempo real, historial detallado con trazabilidad completa, notificaciones automáticas por email y reportes analíticos con insights de productividad. El resultado fue una reducción del 65% en el tiempo promedio de resolución de tickets.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Proyecto Sistema de Notas -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Notas.jpg" alt="Sistema de Gestión Documental - Interfaz profesional" class="project-image float-left">
+                        <h3>Sistema de Gestión Documental</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Plataforma de Knowledge Management</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Plataforma enterprise de gestión documental desarrollada con JavaScript ES6+, Web Crypto API, IndexedDB y PWA que centraliza todo el conocimiento técnico organizacional en ambiente altamente seguro. El sistema implementa encriptación AES-256 de nivel financiero, control de acceso jerárquico con segregación de documentos corporativos y personales, motor de búsqueda inteligente con indexación full-text y filtros contextuales, versionado automático con auditoría completa, categorización automática por IA basada en contexto organizacional y backup redundante con sincronización en tiempo real. La solución resultó en 85% de reducción en tiempo de búsqueda documental y 100% de centralización del conocimiento técnico de la empresa.
+                        </p>
+                    </div>
+                </article>
+
+                </div> <!-- End projects-grid -->
+            </div> <!-- End projects-timeline -->
+
+                <article class="project-timeline-item">
+                    <div class="project-timeline-content">
+                        <div class="project-content-area">
+                            <h3>Portafolio Interactivo con Efectos Liquid Glass</h3>
+                            <p class="project-info"><strong>Proyecto Personal</strong> (Desarrollo Web Front-End)</p>
+                            <p class="date-info">Junio 2025</p>
+                            <p>Portafolio web moderno e interactivo desarrollado con HTML5, CSS3 y JavaScript vanilla. Implementa efectos visuales avanzados de "liquid glass" con morfismo de vidrio, sistema de partículas animadas, cursor interactivo con efectos de ondas y diseño responsivo.</p>
+                            <p><strong>Tecnologías utilizadas:</strong> HTML5, CSS3, JavaScript ES6+, Canvas API, CSS Grid/Flexbox, Git, GitHub Pages</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-timeline-item">
+                    <div class="project-timeline-content">
+                        <div class="project-content-area">
+                            <h3>Software de Reconocimiento Facial y Seguridad</h3>
+                            <p class="project-info"><strong>Universidad de Uberaba</strong> (Proyecto Académico Aplicado)</p>
+                            <p class="date-info">Marzo 2023 – Mayo 2023</p>
+                            <p>Este proyecto consiste en un software de reconocimiento facial desarrollado en Python, con enfoque en seguridad y automatización de procesos. El sistema permite registrar, remover e identificar personas a través de imágenes capturadas por la cámara. Proyecto clasificado en 1º lugar entre 60 proyectos académicos.</p>
+                            <p><strong>Tecnologías utilizadas:</strong> Python, OpenCV, Machine Learning, Algoritmos de Visión Computacional, Tkinter, Manipulación de Base de Datos</p>
+                        </div>
+                        <div class="project-gallery-grid">
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/1-Lobby.jpg?raw=true" width="55%" alt="Página inicial del programa"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/4-Scanner.jpg?raw=true" width="50%" alt="Pantalla del escáner facial"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/2-Add.jpg?raw=true" width="70%" alt="Pantalla de agregar persona"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/3-Rmv.jpg?raw=true" width="70%" alt="Pantalla de remover persona"></div>
+                        </div>
                     </div>
                 </article>
             </div>

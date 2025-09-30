@@ -8,8 +8,21 @@
     <!-- Sets the character set to UTF-8, supporting various characters. -->
     <meta charset="UTF-8">
     <!-- Configures the viewport for responsiveness, adjusting width to device and initial scale. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Page title displayed in the browser tab. Associated with: Browser Tab -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    </footer>
+
+    <!-- Modal for image expansion -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeImageModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Link to certifications configuration file -->
+    <script src="../scripts/certifications-config.js"></script>
+    <!-- Link to main JavaScript file. Associated with: scripts/script.js -->
+    <script src="../scripts/script.js"></script>!-- Page title displayed in the browser tab. Associated with: Browser Tab -->
     <title>Davi Castro - Back-End Developer</title>
     <!-- Favicon - icon displayed in the browser tab -->
     <link rel="icon" type="image/png" href="../imagens/Site_icon.png">
@@ -156,34 +169,108 @@
         <section id="projetos" class="section-padding">
             <!-- Section title. -->
             <h2 class="section-title">Featured Projects</h2>
-            <!-- Grid for project display. -->
-            <div class="projects-grid">
-                <!-- Individual project card (Interactive Portfolio). -->
-                <article class="project-card">
-                    <h3>Interactive Portfolio with Liquid Glass Effects</h3>
-                    <p class="project-info"><strong>Personal Project</strong> (Front-End Web Development)</p>
-                    <p class="date-info">June 2025</p>
-                    <p>
-                        Modern and interactive web portfolio developed with HTML5, CSS3, and vanilla JavaScript. Implements advanced "liquid glass" visual effects with glass morphism, animated particle systems, interactive cursor with ripple effects, and responsive design. The project demonstrates skills in modern front-end development, advanced CSS animations, Canvas API manipulation, and contemporary UX/UI techniques.
-                    </p>
-                    <p><strong>Technologies used:</strong> HTML5, CSS3, JavaScript ES6+, Canvas API, CSS Grid/Flexbox, Git, GitHub Pages</p>
+            <!-- Container for projects organization -->
+            <div class="projects-timeline">
+                <div class="projects-grid">
+                <!-- Audicom Hub Project -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Hub.jpg" alt="Audicom Hub - Centralized platform interface" class="project-image float-left">
+                        <h3>Audicom Hub</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Integrated Corporate Platform</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Centralized enterprise platform that unifies all essential operational systems in a modern and responsive interface. Developed with JavaScript ES6+, Python and REST API, the solution transformed fragmented processes into an integrated ecosystem, implementing ticketing system with automatic categorization, complete router management, inventory control, standardized service scripts, 24/7 AI assistant and documentation system with advanced search. The result was a 60% reduction in ticket resolution time and complete integration of the company's operational processes.
+                        </p>
+                    </div>
                 </article>
-                
-                <!-- Individual project card (Facial Recognition Software). -->
-                <article class="project-card">
-                    <h3>Facial Recognition and Security Software</h3>
-                    <p class="project-info"><strong>Universidade de Uberaba</strong> (Applied Academic Project)</p>
-                    <p class="date-info">March 2023 – May 2023</p>
-                    <p>
-                        This project consists of facial recognition software developed in Python, focusing on security and process automation. The system allows registering, removing, and identifying people through images captured by the camera, making access control more efficient and secure for companies and institutions. Project ranked 1st place among 60 academic projects.
-                    </p>
-                    <p><strong>Technologies used:</strong> Python, OpenCV, Machine Learning, Computer Vision Algorithms, Tkinter, Database Management</p>
-                    <!-- Project image gallery. -->
-                    <div class="project-gallery-grid">
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/1-Lobby.jpg?raw=true" width="55%" alt="Program home page"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/4-Scanner.jpg?raw=true" width="50%" alt="Facial scanner screen"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/2-Add.jpg?raw=true" width="70%" alt="Add person screen"></div>
-                        <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/3-Rmv.jpg?raw=true" width="70%" alt="Remove person screen"></div>
+
+                <!-- Audinha AI Project -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Audinha.jpg" alt="Audinha AI - Virtual technical support assistant" class="project-image float-left">
+                        <h3>Audinha AI</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Artificial Intelligence Assistant</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Virtual assistant specialized in telecommunications technical support, developed with Python, Machine Learning, NLP and TensorFlow. The autonomous system provides automatic diagnostics with 95% accuracy, integrates technical knowledge base, offers personalized guided resolution by equipment, performs automatic log analysis, multilingual support in Portuguese, English and Spanish, and direct connection with ticketing systems via API. With an average response time of 2 seconds, it resolves 80% of cases without need for human escalation.
+                        </p>
+                    </div>
+                </article>
+                </article>
+
+                <!-- Service Scripts Project -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Scripts.jpg" alt="Service Scripts - AI correction interface" class="project-image float-left">
+                        <h3>Service Scripts with AI Corrector</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Automated Communication System</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Intelligent corporate communication standardization system developed with JavaScript ES6+, NLP and REST API. The platform implements automatic linguistic correction for grammar and professional tone, uses standardized scripts with templates for recurring technical scenarios, offers dynamic fields with automatic validation, has integrated workflow for creation, correction and approval of communications, quality control with corporate compliance analysis and complete history for traceability. The result was a 90% reduction in communication errors and complete standardization of technical service.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Ticketing System Project -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Sistema-de-Chamados.jpg" alt="Ticketing System - Control dashboard" class="project-image float-left">
+                        <h3>Ticketing System</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Ticket Management Platform</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Complete ticket and technical request management system developed with JavaScript ES6+, Node.js and WebSocket. The platform centralizes all operational demands in a unified interface, implementing automatic intelligent categorization by priority and department, customized workflow based on business rules, executive dashboard with SLA and performance metrics in real time, detailed history with complete traceability, automatic email notifications and analytical reports with productivity insights. The result was a 65% reduction in average ticket resolution time.
+                        </p>
+                    </div>
+                </article>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Notes System Project -->
+                <article class="project-timeline-item project-side-by-side">
+                    <div class="project-timeline-content">
+                        <img src="../imagens/Audicom-projetos/Notas.jpg" alt="Document Management System - Professional interface" class="project-image float-left">
+                        <h3>Document Management System</h3>
+                        <p class="project-info"><strong>Audicom Telecom & Tecnologia</strong> | Knowledge Management Platform</p>
+                        <p class="date-info">2025</p>
+                        <p>
+                            Enterprise document management platform developed with JavaScript ES6+, Web Crypto API, IndexedDB and PWA that centralizes all organizational technical knowledge in a highly secure environment. The system implements financial-grade AES-256 encryption, hierarchical access control with corporate and personal document segregation, intelligent search engine with full-text indexing and contextual filters, automatic versioning with complete auditing, AI-based automatic categorization by organizational context and redundant backup with real-time synchronization. The solution resulted in 85% reduction in document search time and 100% centralization of the company's technical knowledge.
+                        </p>
+                    </div>
+                </article>
+
+                </div> <!-- End projects-grid -->
+            </div> <!-- End projects-timeline -->
+
+                <article class="project-timeline-item">
+                    <div class="project-timeline-content">
+                        <div class="project-content-area">
+                            <h3>Interactive Portfolio with Liquid Glass Effects</h3>
+                            <p class="project-info"><strong>Personal Project</strong> (Front-End Web Development)</p>
+                            <p class="date-info">June 2025</p>
+                            <p>Modern and interactive web portfolio developed with HTML5, CSS3, and vanilla JavaScript. Implements advanced "liquid glass" visual effects with glass morphism, animated particle systems, interactive cursor with ripple effects, and responsive design.</p>
+                            <p><strong>Technologies used:</strong> HTML5, CSS3, JavaScript ES6+, Canvas API, CSS Grid/Flexbox, Git, GitHub Pages</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-timeline-item">
+                    <div class="project-timeline-content">
+                        <div class="project-content-area">
+                            <h3>Facial Recognition and Security Software</h3>
+                            <p class="project-info"><strong>Universidade de Uberaba</strong> (Applied Academic Project)</p>
+                            <p class="date-info">March 2023 – May 2023</p>
+                            <p>This project consists of facial recognition software developed in Python, focusing on security and process automation. The system allows registering, removing, and identifying people through images captured by the camera. Project ranked 1st place among 60 academic projects.</p>
+                            <p><strong>Technologies used:</strong> Python, OpenCV, Machine Learning, Computer Vision Algorithms, Tkinter, Database Management</p>
+                        </div>
+                        <div class="project-gallery-grid">
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/1-Lobby.jpg?raw=true" width="55%" alt="Program home page"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/4-Scanner.jpg?raw=true" width="50%" alt="Facial scanner screen"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/2-Add.jpg?raw=true" width="70%" alt="Add person screen"></div>
+                            <div><img src="https://github.com/Davicjc/Face-Safety/blob/main/Fotos/3-Rmv.jpg?raw=true" width="70%" alt="Remove person screen"></div>
+                        </div>
                     </div>
                 </article>
             </div>
