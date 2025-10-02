@@ -19,6 +19,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Notificação Nova Versão -->
+    <div id="newVersionNotification" class="version-notification">
+        <div class="notification-content">
+            <div class="notification-header">
+                <div class="notification-icon">🚀</div>
+                <h3>Nova Versão Disponível!</h3>
+                <button class="notification-close" onclick="closeNotification()">&times;</button>
+            </div>
+            <div class="notification-body">
+                <p>Uma nova versão do meu portfólio está sendo desenvolvida com tema <strong>Matrix/Cyberpunk</strong> e recursos avançados!</p>
+                <div class="notification-features">
+                    <div class="feature">✨ Design Matrix com efeitos cyberpunk</div>
+                    <div class="feature">🎮 Animações interativas avançadas</div>
+                    <div class="feature">🔥 Interface terminal em tempo real</div>
+                    <div class="feature">⚡ Performance otimizada</div>
+                </div>
+                <div class="notification-actions">
+                    <button class="btn-prototype" onclick="goToPrototype()">
+                        <span>🎯 Acessar Protótipo</span>
+                    </button>
+                    <button class="btn-remind" onclick="remindLater()">
+                        Lembrar depois
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="notification-overlay"></div>
+    </div>
+
     <!-- Canvas para animação de partículas no fundo. Associado a: script.js (animação de partículas) -->
     <canvas id="particle-canvas"></canvas>
 

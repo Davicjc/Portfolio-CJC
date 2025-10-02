@@ -379,6 +379,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Correção forçada do letter-spacing
     fixLetterSpacing();
+    
+    // ===== INICIALIZAÇÃO DA NOTIFICAÇÃO =====
+    // Notificação aparece sempre ao entrar no site
+    const notification = document.getElementById('newVersionNotification');
+    if (notification) {
+        notification.style.display = 'flex';
+        console.log('✅ Notificação exibida!');
+    }
     })();
 });
 
@@ -465,4 +473,27 @@ function fixLetterSpacing() {
     });
     
     console.log('Letter-spacing corrigido para', projectTitles.length, 'títulos');
+}
+
+// ===== FUNÇÕES DA NOTIFICAÇÃO NOVA VERSÃO =====
+
+// Função para fechar a notificação
+function closeNotification() {
+    const notification = document.getElementById('newVersionNotification');
+    if (notification) {
+        notification.style.display = 'none';
+    }
+}
+
+// Função para ir ao protótipo
+function goToPrototype() {
+    // Abre o protótipo em nova aba
+    window.open('prototipo.html', '_blank');
+    // Fecha a notificação
+    closeNotification();
+}
+
+// Função para lembrar depois
+function remindLater() {
+    closeNotification();
 }
